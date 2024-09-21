@@ -42,7 +42,7 @@ This module will set the following variables in your project:
 #]=======================================================================]
 
 find_path(MXML_INCLUDE_DIR mxml.h)
-find_library(MXML_LIBRARY NAMES mxml)
+find_library(MXML_LIBRARY NAMES mxml4)
 
 if(MXML_INCLUDE_DIR AND EXISTS "${MXML_INCLUDE_DIR}/mxml.h")
 	file(STRINGS "${MXML_INCLUDE_DIR}/mxml.h" MXML_VERSION_MAJOR_LINE REGEX "^#[ \t]+define[ \t]+MXML_MAJOR_VERSION[ \t]+[0-9]+")

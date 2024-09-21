@@ -288,7 +288,7 @@ check_headers() {
 			done
 		fi
 	fi
-	check_header_bundled "mxml.h" "mxml"
+	check_header_bundled "mxml.h" "mxml4"
 	check_header "SDL.h" "sdl2"
 	if [ "${HAVE_SDL2_SDL_H}" != "1" ]; then
 		for i in game ufo ufo2map ufoded ufomodel; do

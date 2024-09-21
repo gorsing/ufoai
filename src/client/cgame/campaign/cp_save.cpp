@@ -298,6 +298,7 @@ bool SAV_GameSave (const char* filename, const char* comment, char** error)
 	}
 
 	char savegame[MAX_OSPATH];
+	char* buf;
 	dateLong_t date;
 	char message[30];
 	char timeStampBuffer[32];
@@ -340,20 +341,16 @@ bool SAV_GameSave (const char* filename, const char* comment, char** error)
 		date.year, Date_GetMonthName(date.month - 1), date.day);
 	Q_strncpyz(header.realDate, timeStampBuffer, sizeof(header.realDate));
 
-	char dummy[2];
-	int requiredBufferLength = mxmlSaveString(topNode, dummy, 2, MXML_NO_CALLBACK);
-
-	header.xmlSize = LittleLong(requiredBufferLength);
-	byte* const buf = Mem_PoolAllocTypeN(byte, requiredBufferLength + 1, cp_campaignPool);
+	buf = mxmlSaveAllocString(topNode, nullptr);
+	mxmlDelete(topNode);
 	if (!buf) {
-		mxmlDelete(topNode);
 		*error = _("Could not allocate enough memory to save this game");
 		cgi->Com_Printf("Error: Could not allocate enough memory to save this game\n");
 		return false;
 	}
-	int res = mxmlSaveString(topNode, (char*)buf, requiredBufferLength + 1, MXML_NO_CALLBACK);
-	mxmlDelete(topNode);
-	cgi->Com_Printf("XML Written to buffer (%d Bytes)\n", res);
+	int requiredBufferLength = strlen(buf) + 1;
+	header.xmlSize = LittleLong(requiredBufferLength);
+	cgi->Com_Printf("XML Written to buffer (%d Bytes)\n", requiredBufferLength);
 
 	uLongf bufLen;
 	if (header.compressed)
@@ -365,8 +362,8 @@ bool SAV_GameSave (const char* filename, const char* comment, char** error)
 	memcpy(fbuf, &header, sizeof(header));
 
 	if (header.compressed) {
-		res = compress(fbuf + sizeof(header), &bufLen, buf, requiredBufferLength);
-		cgi->Free(buf);
+		int res = compress(fbuf + sizeof(header), &bufLen, (byte*) buf, requiredBufferLength);
+		free(buf);
 
 		if (res != Z_OK) {
 			cgi->Free(fbuf);
@@ -376,7 +373,7 @@ bool SAV_GameSave (const char* filename, const char* comment, char** error)
 		}
 	} else {
 		memcpy(fbuf + sizeof(header), buf, requiredBufferLength);
-		cgi->Free(buf);
+		free(buf);
 	}
 
 	/* last step - write data */

@@ -221,9 +221,9 @@ static void GAME_LoadTeamInfo (xmlNode_t* p)
 static bool GAME_SaveTeam (const char* filename, const char* name)
 {
 	teamSaveFileHeader_t header;
-	char dummy[2];
 	equipDef_t* ed = GAME_GetEquipmentDefinition();
 
+	char* buf;
 	xmlNode_t* topNode = mxmlNewXML("1.0");
 	xmlNode_t* node = XML_AddNode(topNode, SAVE_TEAM_ROOTNODE);
 	OBJZERO(header);
@@ -244,26 +244,23 @@ static bool GAME_SaveTeam (const char* filename, const char* name)
 			XML_AddIntValue(ssnode, SAVE_TEAM_NUMLOOSE, ed->numItemsLoose[od->idx]);
 		}
 	}
-	const int requiredBufferLength = mxmlSaveString(topNode, dummy, 2, MXML_NO_CALLBACK);
-	/* required for storing compressed */
-	header.xmlSize = LittleLong(requiredBufferLength);
 
-	byte* const buf = Mem_PoolAllocTypeN(byte, requiredBufferLength + 1, cl_genericPool);
+	buf = mxmlSaveAllocString(topNode, nullptr);
+	mxmlDelete(topNode);
 	if (!buf) {
-		mxmlDelete(topNode);
 		Com_Printf("Error: Could not allocate enough memory to save this game\n");
 		return false;
 	}
-	mxmlSaveString(topNode, (char*)buf, requiredBufferLength + 1, MXML_NO_CALLBACK);
-	mxmlDelete(topNode);
+	int requiredBufferLength = strlen(buf) + 1;
+	header.xmlSize = LittleLong(requiredBufferLength);
 
-	byte* const fbuf = Mem_PoolAllocTypeN(byte, requiredBufferLength + 1 + sizeof(header), cl_genericPool);
+	byte* const fbuf = Mem_PoolAllocTypeN(byte, requiredBufferLength + sizeof(header), cl_genericPool);
 	memcpy(fbuf, &header, sizeof(header));
-	memcpy(fbuf + sizeof(header), buf, requiredBufferLength + 1);
-	Mem_Free(buf);
+	memcpy(fbuf + sizeof(header), buf, requiredBufferLength);
+	free(buf);
 
 	/* last step - write data */
-	FS_WriteFile(fbuf, requiredBufferLength + 1 + sizeof(header), filename);
+	FS_WriteFile(fbuf, requiredBufferLength + sizeof(header), filename);
 	Mem_Free(fbuf);
 
 	return true;

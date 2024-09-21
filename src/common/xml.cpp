@@ -498,13 +498,13 @@ xmlNode_t* XML_GetNode (xmlNode_t* parent, const char* name)
  */
 xmlNode_t* XML_GetNextNode (xmlNode_t* current, xmlNode_t* parent, const char* name)
 {
-	return mxmlFindElement(current, parent, name, nullptr, nullptr, MXML_NO_DESCEND);
+	return mxmlFindElement(current, parent, name, nullptr, nullptr, MXML_DESCEND_NONE);
 }
 
 /**
  * @brief callback function for parsing the node tree
  */
-static mxml_type_t mxml_ufo_type_cb (xmlNode_t* node)
+static mxml_type_t mxml_ufo_type_cb (void *cbdata, xmlNode_t* node)
 {
 	/* You can lookup attributes and/or use the
 	 * element name, hierarchy, etc... */
@@ -518,17 +518,21 @@ static mxml_type_t mxml_ufo_type_cb (xmlNode_t* node)
 	}
 
 	if (Q_streq(type, "int"))
-		return MXML_INTEGER;
+		return MXML_TYPE_INTEGER;
 	else if (Q_streq(type, "opaque"))
-		return MXML_OPAQUE;
+		return MXML_TYPE_OPAQUE;
 	else if (Q_streq(type, "string"))
-		return MXML_OPAQUE;
+		return MXML_TYPE_OPAQUE;
 	else if (Q_streq(type, "double"))
-		return MXML_REAL;
-	return MXML_TEXT;
+		return MXML_TYPE_REAL;
+	return MXML_TYPE_TEXT;
 }
 
 xmlNode_t* XML_Parse (const char* buffer)
 {
-	return mxmlLoadString(nullptr, buffer, mxml_ufo_type_cb);
+	mxml_options_t *options = mxmlOptionsNew();
+	mxmlOptionsSetTypeCallback(options, &mxml_ufo_type_cb, nullptr);
+	xmlNode_t *ret = mxmlLoadString(nullptr, nullptr, buffer);
+	mxmlOptionsDelete(options);
+	return ret;
 }
