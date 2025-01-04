@@ -63,6 +63,7 @@
 		</Compiler>
 		<Linker>
 			<Add option="-Wl,--export-all-symbols" />
+			<Add library="lua" />
 		</Linker>
 		<Unit filename="../../base/ai/alien.lua" />
 		<Unit filename="../../base/ai/civilian.lua" />

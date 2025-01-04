@@ -19,6 +19,7 @@
         <Add><master/>/include/gtk-2.0</Add>
         <Add><master/>/include/gtkglext-1.0</Add>
         <Add><master/>/include/gtksourceview-2.0</Add>
+        <Add><master/>/include/harfbuzz</Add>
         <Add><master/>/include/libxml2</Add>
         <Add><master/>/include/pango-1.0</Add>
         <Add><master/>/lib/glib-2.0/include</Add>

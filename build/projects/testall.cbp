@@ -21,20 +21,19 @@
 					<Add option="-DHAVE_VORBIS_CODEC_H" />
 					<Add option="-DHAVE_XVID_H" />
 					<Add option="-DHAVE_THEORA_THEORA_H" />
-					<Add directory="../../src/libs/mxml/" />
 					<Add directory="../../src/libs/mumble/" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="opengl32" />
+					<Add library="gdi32" />
 					<Add library="intl" />
+					<Add library="kernel32" />
+					<Add library="opengl32" />
+					<Add library="mingw32" />
+					<Add library="user32" />
 					<Add library="winmm" />
 					<Add library="ws2_32" />
 					<Add library="wsock32" />
-					<Add library="kernel32" />
-					<Add library="user32" />
-					<Add library="gdi32" />
-					<Add library="curl" />
 				</Linker>
 				<ExtraCommands>
 					<Add before='..\..\contrib\scripts\codeblocks_check.bat &quot;$(TARGET_COMPILER_DIR)&quot;' />
@@ -57,19 +56,19 @@
 					<Add option="-DHAVE_VORBIS_CODEC_H" />
 					<Add option="-DHAVE_XVID_H" />
 					<Add option="-DHAVE_THEORA_THEORA_H" />
-					<Add directory="../../src/libs/mxml/" />
 					<Add directory="../../src/libs/mumble/" />
 				</Compiler>
 				<Linker>
 					<Add option="-pg -lgmon" />
-					<Add library="opengl32" />
+					<Add library="gdi32" />
 					<Add library="intl" />
+					<Add library="kernel32" />
+					<Add library="mingw32" />
+					<Add library="opengl32" />
+					<Add library="user32" />
 					<Add library="winmm" />
 					<Add library="ws2_32" />
-					<Add library="user32" />
-					<Add library="kernel32" />
 					<Add library="wsock32" />
-					<Add library="gdi32" />
 				</Linker>
 				<ExtraCommands>
 					<Add before='..\..\contrib\scripts\codeblocks_check.bat &quot;$(TARGET_COMPILER_DIR)&quot;' />
@@ -100,25 +99,24 @@
 			<Add option="-DCOMPILE_UNITTESTS" />
 			<Add option="-DHARD_LINKED_GAME" />
 			<Add option="-DHARD_LINKED_CGAME" />
-			<Add directory="../../src/libs/mxml/" />
-			<Add directory="../../src/libs/gtest/include/" />
-			<Add directory="../../src/libs/gtest/" />
 			<Add directory="../../src/libs/mumble/" />
 		</Compiler>
 		<Linker>
-			<Add library="mingw32" />
-			<Add library="SDL2main" />
 			<Add library="SDL2" />
 			<Add library="SDL2_ttf" />
 			<Add library="SDL2_mixer" />
-			<Add library="z" />
-			<Add library="jpeg" />
-			<Add library="png" />
 			<Add library="curl" />
-			<Add library="vorbis" />
+			<Add library="gtest" />
+			<Add library="gtest_main" />
+			<Add library="lua" />
+			<Add library="jpeg" />
+			<Add library="mxml" />
 			<Add library="ogg" />
+			<Add library="png" />
 			<Add library="theora" />
+			<Add library="vorbis" />
 			<Add library="xvidcore" />
+			<Add library="z" />
 		</Linker>
 		<Unit filename="../../src/client/battlescape/cl_actor.cpp" />
 		<Unit filename="../../src/client/battlescape/cl_battlescape.cpp" />
@@ -475,40 +473,9 @@
 		<Unit filename="../../src/game/q_shared.cpp" />
 		<Unit filename="../../src/game/q_shared.h" />
 		<Unit filename="../../src/game/srvedict.h" />
-		<Unit filename="../../src/libs/gtest/src/gtest-all.cc" />
 		<Unit filename="../../src/libs/mumble/libmumblelink.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/libs/mxml/config.h" />
-		<Unit filename="../../src/libs/mxml/mxml-attr.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-entity.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-file.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-index.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-node.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-private.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-private.h" />
-		<Unit filename="../../src/libs/mxml/mxml-search.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-set.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml-string.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/libs/mxml/mxml.h" />
 		<Unit filename="../../src/ports/windows/ufo.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>

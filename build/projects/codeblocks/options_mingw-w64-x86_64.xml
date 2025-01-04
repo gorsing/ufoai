@@ -8,6 +8,5 @@
     <Program name="LIB"       value="ar.exe"/>
     <Program name="WINDRES"   value="windres.exe"/>
     <Program name="MAKE"      value="mingw32-make.exe"/>
-
     <Switch name="forceFwdSlashes" value="true"/>
 </CodeBlocks_compiler_options>

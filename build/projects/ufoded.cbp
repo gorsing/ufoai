@@ -24,7 +24,9 @@
 					<Add library="iberty" />
 					<Add library="imagehlp" />
 					<Add library="intl" />
+					<Add library="sframe" />
 					<Add library="z" />
+					<Add library="zstd" />
 				</Linker>
 				<ExtraCommands>
 					<Add before='..\..\contrib\scripts\codeblocks_check.bat &quot;$(TARGET_COMPILER_DIR)&quot;' />
@@ -50,6 +52,9 @@
 					<Add library="iberty" />
 					<Add library="imagehlp" />
 					<Add library="intl" />
+					<Add library="sframe" />
+					<Add library="z" />
+					<Add library="zstd" />
 				</Linker>
 				<ExtraCommands>
 					<Add before='..\..\contrib\scripts\codeblocks_check.bat &quot;$(TARGET_COMPILER_DIR)&quot;' />

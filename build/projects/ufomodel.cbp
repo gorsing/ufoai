@@ -20,9 +20,9 @@
 				</Compiler>
 				<Linker>
 					<Add option="-mwindows" />
+					<Add option="-mconsole" />
 					<Add library="winmm" />
 					<Add library="mingw32" />
-					<Add library="SDL2main" />
 				</Linker>
 				<ExtraCommands>
 					<Add before='..\..\contrib\scripts\codeblocks_check.bat &quot;$(TARGET_COMPILER_DIR)&quot;' />
@@ -46,10 +46,10 @@
 				</Compiler>
 				<Linker>
 					<Add option="-pg -lgmon" />
+					<Add option="-mconsole" />
 					<Add option="-mwindows" />
 					<Add library="winmm" />
 					<Add library="mingw32" />
-					<Add library="SDL2main" />
 				</Linker>
 				<ExtraCommands>
 					<Add before='..\..\contrib\scripts\codeblocks_check.bat &quot;$(TARGET_COMPILER_DIR)&quot;' />
@@ -80,6 +80,7 @@
 			<Add option="-DCOMPILE_MAP" />
 		</Compiler>
 		<Linker>
+			<Add library="SDL2main" />
 			<Add library="SDL2" />
 			<Add library="jpeg" />
 			<Add library="png" />
