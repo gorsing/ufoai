@@ -33,7 +33,7 @@ find_package(Lua 5.3)
 find_package(SDL_mixer "2" EXACT)
 find_package(SDL_ttf "2" EXACT)
 find_package(VORBIS)
-find_package(MXML)
+find_package(MXML "3")
 find_package(GTest)
 
 set(UFOTESTALL_SOURCES

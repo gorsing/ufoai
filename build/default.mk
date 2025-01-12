@@ -130,25 +130,9 @@ MUMBLE_LIBS              ?=
 MUMBLE_SRCS               = libs/mumble/libmumblelink.c
 MUMBLE_CFLAGS             = -Isrc/libs/mumble
 
-MXML_CFLAGS              ?= $(call PKG_CFLAGS,mxml4)
-MXML_LIBS                ?= $(call PKG_LIBS,mxml4)
-ifndef HAVE_MXML4_MXML_H
-MXML_SRCS                 = libs/mxml-4.0.3/mxml-attr.c \
-                            libs/mxml-4.0.3/mxml-file.c \
-                            libs/mxml-4.0.3/mxml-get.c \
-                            libs/mxml-4.0.3/mxml-index.c \
-                            libs/mxml-4.0.3/mxml-node.c \
-                            libs/mxml-4.0.3/mxml-options.c \
-                            libs/mxml-4.0.3/mxml-private.c \
-                            libs/mxml-4.0.3/mxml-search.c \
-                            libs/mxml-4.0.3/mxml-set.c
-MXML_CFLAGS               = -Isrc/libs/mxml-4.0.3
-MXML_LIBS                 =
-ifeq ($(findstring $(TARGET_OS), mingw32 mingw64),)
-MXML_LIBS                 = -lpthread
-endif
-else
-MXML_SRCS                 =
+ifdef HAVE_MXML4_MXML_H
+	MXML_CFLAGS              ?= $(call PKG_CFLAGS,"mxml4 mxml")
+	MXML_LIBS                ?= $(call PKG_LIBS,"mxml4 mxml")
 endif
 
 PICOMODEL_CFLAGS         ?= $(call PKG_CFLAGS,picomodel)

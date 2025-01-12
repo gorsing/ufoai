@@ -27,6 +27,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../shared/cxx.h"
 #include "../shared/shared.h"
 
+#if MXML_MAJOR_VERSION < 4
+#define MXML_DESCEND_NONE	MXML_NO_DESCEND
+#define MXML_TYPE_INTEGER	MXML_INTEGER
+#define MXML_TYPE_OPAQUE	MXML_OPAQUE
+#define MXML_TYPE_REAL		MXML_REAL
+#define MXML_TYPE_TEXT		MXML_TEXT
+#endif
+
+
 /**
  * @brief add a String attribute to the XML Node
  * @param[out] parent XML Node structure to add to
@@ -504,7 +513,11 @@ xmlNode_t* XML_GetNextNode (xmlNode_t* current, xmlNode_t* parent, const char* n
 /**
  * @brief callback function for parsing the node tree
  */
+#if MXML_MAJOR_VERSION < 4
+static mxml_type_t mxml_ufo_type_cb (xmlNode_t* node)
+#else
 static mxml_type_t mxml_ufo_type_cb (void *cbdata, xmlNode_t* node)
+#endif
 {
 	/* You can lookup attributes and/or use the
 	 * element name, hierarchy, etc... */
@@ -530,9 +543,13 @@ static mxml_type_t mxml_ufo_type_cb (void *cbdata, xmlNode_t* node)
 
 xmlNode_t* XML_Parse (const char* buffer)
 {
+#if MXML_MAJOR_VERSION < 4
+	return mxmlLoadString(nullptr, buffer, mxml_ufo_type_cb);
+#else
 	mxml_options_t *options = mxmlOptionsNew();
 	mxmlOptionsSetTypeCallback(options, &mxml_ufo_type_cb, nullptr);
 	xmlNode_t *ret = mxmlLoadString(nullptr, nullptr, buffer);
 	mxmlOptionsDelete(options);
 	return ret;
+#endif
 }
