@@ -128,7 +128,7 @@ do
 			end,
 
 			activate = function (sender)
-				-- ufo.print(string.format("Change: min: %i current: %i max: %i delta: %i lastdiff: %i\n", sender:min(), sender:value(), sender:max(), sender:delta(), sender:lastdiff()))
+				--ufo.print(string.format("Spinner: %s change: min: %i current: %i max: %i delta: %i lastdiff: %i\n", sender:name(), sender:min(), sender:value(), sender:max(), sender:delta(), sender:lastdiff()))
 				ufo.cmd(string.format("ui_market_buy \"%s\" %s;", sender:parent():child("id"):as_string(), tostring(sender:lastdiff())))
 				ufo.cmd(string.format("ui_market_fill %s;", ufo.findvar("ui_market_category"):as_string()))
 				ufo.cmd(string.format("ui_market_select \"%s\";", sender:parent():child("id"):as_string()))
@@ -179,7 +179,7 @@ do
 			size = {74, 16},
 			topicon = "icons/arrowtext_rgt",
 			mode = ufo.SPINNER_ONLY_DECREASE,
-			delta = 1,
+			delta = -1,
 			shiftmultiplier = 10,
 
 			on_mouseenter = function (sender)
@@ -191,8 +191,8 @@ do
 			end,
 
 			activate = function (sender)
-				-- ufo.print(string.format("Change: min: %i current: %i max: %i delta: %i lastdiff: %i\n", sender:min(), sender:value(), sender:max(), sender:delta(), sender:lastdiff()))
-				ufo.cmd(string.format("ui_market_buy \"%s\" %s;", sender:parent():child("id"):as_string(), tostring(sender:lastdiff())))
+				--ufo.print(string.format("Spinner: %s change: min: %i current: %i max: %i delta: %i lastdiff: %i\n", sender:name(), sender:min(), sender:value(), sender:max(), sender:delta(), sender:lastdiff()))
+				ufo.cmd(string.format("ui_market_buy \"%s\" %s;", sender:parent():child("id"):as_string(), tostring(-1 * sender:lastdiff())))
 				ufo.cmd(string.format("ui_market_fill %s;", ufo.findvar("ui_market_category"):as_string()))
 				ufo.cmd(string.format("ui_market_select \"%s\";", sender:parent():child("id"):as_string()))
 			end,

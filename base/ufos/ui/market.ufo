@@ -463,7 +463,7 @@ do
 										name = "sell",
 										min = 0,
 										max = base_count + market_count,
-										value = base_count,
+										value = market_count,
 										tooltip = string.format("_Sell for %i credits each", sellprice),
 									},
 
@@ -474,7 +474,7 @@ do
 									}
 								}, category_list)
 								item:child("buy").on_change = item:child("buy").activate
-								item:child("sell").on_change = item:child("buy").activate
+								item:child("sell").on_change = item:child("sell").activate
 
 								sender:parent():child("category_height"):set_value(sender:parent():child("category_height"):as_integer() + 30)
 								category_list:set_height(sender:parent():child("category_height"):as_integer())
