@@ -41,8 +41,8 @@ This module will set the following variables in your project:
 
 #]=======================================================================]
 
-find_path(MXML_INCLUDE_DIR mxml.h)
-find_library(MXML_LIBRARY NAMES mxml4 mxml)
+find_path(MXML_INCLUDE_DIR mxml.h PATH_SUFFIXES mxml4 libmxml4)
+find_library(MXML_LIBRARY NAMES mxml4 libmxml4 mxml)
 
 if(MXML_INCLUDE_DIR AND EXISTS "${MXML_INCLUDE_DIR}/mxml.h")
 	file(STRINGS "${MXML_INCLUDE_DIR}/mxml.h" MXML_VERSION_MAJOR_LINE REGEX "^#[ \t]+define[ \t]+MXML_MAJOR_VERSION[ \t]+[0-9]+")
@@ -51,7 +51,7 @@ if(MXML_INCLUDE_DIR AND EXISTS "${MXML_INCLUDE_DIR}/mxml.h")
 	string(REGEX REPLACE "^#[ \t]+define[ \t]+MXML_MINOR_VERSION[ \t]+([0-9]+).*$" "\\1" MXML_VERSION_MINOR "${MXML_VERSION_MINOR_LINE}")
 	unset(MXML_VERSION_MAJOR_LINE)
 	unset(MXML_VERSION_MINOR_LINE)
-	if (MXML_VERSION_MAJOR AND MXML_VERSION_MINOR)
+	if (DEFINED MXML_VERSION_MAJOR AND DEFINED MXML_VERSION_MINOR)
 		set(MXML_VERSION ${MXML_VERSION_MAJOR}.${MXML_VERSION_MINOR})
 	endif()
 endif()
