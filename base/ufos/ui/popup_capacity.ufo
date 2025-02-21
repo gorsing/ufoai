@@ -131,7 +131,7 @@ do
 					return
 				end
 				ufo.pop_window(false)
-				ufo.cmd(string.format("mn_base_select %q;", baseid:as_integer()))
+				ufo.cmd(string.format("mn_base_select %i;", baseid:as_integer()))
 			end,
 		},
 
