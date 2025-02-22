@@ -134,28 +134,34 @@ alienBase_t* AB_GetByIDX (int baseIDX)
  */
 void CP_SpawnAlienBaseMission (alienBase_t* alienBase)
 {
-	mission_t* mission;
+	/* Don't spawn more than one mission for a base */
+	MIS_Foreach(mission) {
+		if (mission->category != INTERESTCATEGORY_ALIENBASE)
+			continue;
+		if (mission->data.alienBase == alienBase)
+			return;
+	}
 
-	mission = CP_CreateNewMission(INTERESTCATEGORY_ALIENBASE, true);
-	if (!mission) {
+	mission_t* newMission = CP_CreateNewMission(INTERESTCATEGORY_ALIENBASE, true);
+	if (!newMission) {
 		cgi->Com_Printf("CP_SpawnAlienBaseMission: Could not add mission, abort\n");
 		return;
 	}
 
-	mission->stage = STAGE_BASE_DISCOVERED;
-	mission->data.alienBase = alienBase;
+	newMission->stage = STAGE_BASE_DISCOVERED;
+	newMission->data.alienBase = alienBase;
 
-	mission->mapDef = cgi->Com_GetMapDefinitionByID(MAPDEF_ALIENBASE);
-	if (!mission->mapDef)
+	newMission->mapDef = cgi->Com_GetMapDefinitionByID(MAPDEF_ALIENBASE);
+	if (!newMission->mapDef)
 		cgi->Com_Error(ERR_FATAL, "Could not find mapdef " MAPDEF_ALIENBASE);
 
-	Vector2Copy(alienBase->pos, mission->pos);
-	mission->posAssigned = true;
+	Vector2Copy(alienBase->pos, newMission->pos);
+	newMission->posAssigned = true;
 
 	/* Alien base stay until it's destroyed */
-	CP_MissionDisableTimeLimit(mission);
+	CP_MissionDisableTimeLimit(newMission);
 	/* mission appears on geoscape, player can go there */
-	CP_MissionAddToGeoscape(mission, false);
+	CP_MissionAddToGeoscape(newMission, false);
 
 	CP_TriggerEvent(ALIENBASE_DISCOVERED, nullptr);
 }

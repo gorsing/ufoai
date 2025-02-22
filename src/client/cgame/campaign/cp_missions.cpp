@@ -2154,12 +2154,31 @@ bool MIS_LoadXML (xmlNode_t* parent)
 			{
 				int baseIdx = cgi->XML_GetInt(node, SAVE_MISSIONS_ALIENBASEINDEX, -1);
 				alienBase_t* alienBase = AB_GetByIDX(baseIdx);
-				if (alienBase)
+				if (alienBase) {
+					if (mission.category != INTERESTCATEGORY_SUPPLY) {
+						mission_t* duplicate = nullptr;
+						MIS_Foreach(previousMission) {
+							if (previousMission->category != mission.category)
+								continue;
+							if (previousMission->data.alienBase == alienBase) {
+								duplicate = previousMission;
+								break;
+							}
+						}
+						if (duplicate) {
+							cgi->Com_Printf("Error loading Alien Base mission (missionidx %i, baseidx: %i, category: %i, stage: %i): is the same as mission (missionidx %i, baseidx: %i, category: %i, stage: %i)\n",
+								mission.idx, baseIdx, mission.category, mission.stage,
+								duplicate->idx, duplicate->data.alienBase->idx, duplicate->category, duplicate->stage);
+							continue;
+						}
+					}
 					mission.data.alienBase = alienBase;
-				if (!mission.data.alienBase && !CP_BasemissionIsSubvertingGovernmentMission(&mission) && mission.stage >= STAGE_BUILD_BASE) {
-					cgi->Com_Printf("Error loading Alien Base mission (missionidx %i, baseidx: %i, category: %i, stage: %i): no such base\n",
-						mission.idx, baseIdx, mission.category, mission.stage);
-					continue;
+				} else {
+					if (!CP_BasemissionIsSubvertingGovernmentMission(&mission) && mission.stage >= STAGE_BUILD_BASE) {
+						cgi->Com_Printf("Error loading Alien Base mission (missionidx %i, baseidx: %i, category: %i, stage: %i): no such base\n",
+							mission.idx, baseIdx, mission.category, mission.stage);
+						continue;
+					}
 				}
 			}
 			break;
