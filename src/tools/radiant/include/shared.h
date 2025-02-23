@@ -3,7 +3,7 @@
  */
 
 /*
-Copyright (C) 2002-2024 UFO: Alien Invasion.
+Copyright (C) 2002-2025 UFO: Alien Invasion.
 All Rights Reserved.
 
 This file is part of UFORadiant.
