@@ -8,19 +8,20 @@ export DEVEL_DIR=/development
 export JOBS="-j4"
 
 DEPENDENCIES=(
-	https://github.com/libsdl-org/SDL/releases/download/release-2.30.6/SDL2-devel-2.30.6-mingw.tar.gz,SDL2-2.30.6,sdl-make
-	https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.0/SDL2_mixer-devel-2.8.0-mingw.tar.gz,SDL2_mixer-2.8.0,sdl-make
-	https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.22.0/SDL2_ttf-devel-2.22.0-mingw.tar.gz,SDL2_ttf-2.22.0,sdl-make
+	https://github.com/libsdl-org/SDL/releases/download/release-2.32.0/SDL2-devel-2.32.0-mingw.tar.gz,SDL2-2.32.0,sdl-make
+	https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.1/SDL2_mixer-devel-2.8.1-mingw.tar.gz,SDL2_mixer-2.8.1,sdl-make
+	https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.24.0/SDL2_ttf-devel-2.24.0-mingw.tar.gz,SDL2_ttf-2.24.0,sdl-make
 	https://www.lua.org/ftp/lua-5.4.7.tar.gz,lua-5.4.7,lua-make
-	https://curl.se/windows/dl-8.9.1_1/curl-8.9.1_1-win64-mingw.zip,curl-8.9.1_1-win64-mingw,curl-copy
-	https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.0.3/libjpeg-turbo-3.0.3.tar.gz,libjpeg-turbo-3.0.3,cmake
-	https://download.sourceforge.net/libpng/libpng-1.6.43.tar.gz,libpng-1.6.43,cmake
-	https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.17.tar.gz,libiconv-1.17,automake
-	https://ftp.gnu.org/pub/gnu/gettext/gettext-0.22.5.tar.gz,gettext-0.22.5,automake
+	https://curl.se/windows/dl-8.12.1_3/curl-8.12.1_3-win64-mingw.zip,curl-8.12.1_3-win64-mingw,curl-copy
+	https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.0/libjpeg-turbo-3.1.0.tar.gz,libjpeg-turbo-3.1.0,cmake
+	https://download.sourceforge.net/libpng/libpng-1.6.46.tar.gz,libpng-1.6.46,cmake
+	https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.18.tar.gz,libiconv-1.18,automake
+	https://ftp.gnu.org/pub/gnu/gettext/gettext-0.24.tar.gz,gettext-0.24,automake
 	https://downloads.xiph.org/releases/ogg/libogg-1.3.5.tar.gz,libogg-1.3.5,cmake
 	https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.gz,libvorbis-1.3.7,cmake
-	https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.4.0.tar.gz,libwebp-1.4.0,cmake
-	https://github.com/google/googletest/releases/download/v1.15.2/googletest-1.15.2.tar.gz,googletest-1.15.2,cmake
+	https://github.com/michaelrsweet/mxml/releases/download/v4.0.4/mxml-4.0.4.tar.gz,mxml-4.0.4,mxml-make
+	https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.5.0.tar.gz,libwebp-1.5.0,cmake
+	https://github.com/google/googletest/releases/download/v1.16.0/googletest-1.16.0.tar.gz,googletest-1.16.0,cmake
 )
 
 mkdir -p $DEVEL_DIR
@@ -166,6 +167,22 @@ EOF
 			echo "Failed! Check compile_${DIRECTORY}.log"
 			continue
 		fi
+	elif [ "${METHOD}" == "mxml-make" ]; then
+		./configure \
+			--prefix=/usr/x86_64-w64-mingw32/ \
+			--build=x86_64-pc-linux-gnu \
+			--host=x86_64-w64-mingw32 \
+			--target=x86_64-w64-mingw32 >> "${COMPILE_LOG}" 2>&1
+		if [ "$?" != "0" ]; then
+			echo "Failed! Check compile_${DIRECTORY}.log"
+			continue
+		fi
+		sed -e 's/-D_FORTIFY_SOURCE=3//' -i Makefile
+		make "${JOBS}" install >> "${COMPILE_LOG}" 2>&1
+		if [ "$?" != "0" ]; then
+			echo "Failed! Check compile_${DIRECTORY}.log"
+			continue
+		fi
 	elif [ "${METHOD}" == "automake" ]; then
 		mkdir -p build64
 		cd build64
@@ -175,12 +192,12 @@ EOF
 			--host=x86_64-w64-mingw32 \
 			--target=x86_64-w64-mingw32 >> "${COMPILE_LOG}" 2>&1
 		if [ "$?" != "0" ]; then
-			echo "Failed! Configure sources with CMake, check compile_${DIRECTORY}.log"
+			echo "Failed! Check compile_${DIRECTORY}.log"
 			continue
 		fi
 		make "${JOBS}" install >> "${COMPILE_LOG}" 2>&1
 		if [ "$?" != "0" ]; then
-			echo "Failed! Configure sources with CMake, check compile_${DIRECTORY}.log"
+			echo "Failed! Check compile_${DIRECTORY}.log"
 			continue
 		fi
 	fi
