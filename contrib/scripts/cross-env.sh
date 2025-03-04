@@ -31,13 +31,16 @@ echo "Installing dependencies from the repository"
 apt-get update > "${DEVEL_DIR}/apt-get.log" 2>&1
 apt-get install -y \
 	cmake \
+	gettext \
 	git \
 	libz-mingw-w64-dev \
 	make \
 	mingw-w64 \
 	mingw-w64-tools \
 	nasm \
+	nsis \
 	python3 \
+	python3-urllib3 \
 	wget \
 	zip \
 	>> "${DEVEL_DIR}/apt-get.log" 2>&1

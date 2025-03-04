@@ -34,11 +34,8 @@ ShowUninstDetails "nevershow"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\ufoai.bmp"
 
 Var GAMEFLAGS
-Var MAPFLAGS
 Var GAMETEST
-Var MAPTEST
 Var GAMEICONFLAGS
-Var MAPICONFLAGS
 
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
@@ -116,35 +113,6 @@ SectionGroup /e "Game" SECGROUP01
 	SectionEnd
 SectionGroupEnd
 
-SectionGroup /e "Mapping" SECGROUP02
-	Section "Mapping Tools" SEC02
-		SetOutPath "$INSTDIR\base\maps"
-			File "..\..\..\base\maps\compile.p*"
-			File /r /x .gitignore "..\..\..\base\maps\*.map"
-;			File /r /x .gitignore "..\..\..\base\maps\*.ump"
-		SetOutPath "$INSTDIR\tools"
-			File "..\..\..\src\tools\*.ms"
-			File "..\..\..\src\tools\*.pl"
-			; EULA
-			File "..\..\q3radiant\*.doc"
-			File "..\..\q3radiant\*.exe"
-		SetOutPath "$INSTDIR"
-			File "..\..\..\ufo2map.exe"
-		; RADIANT
-		SetOutPath "$INSTDIR\radiant"
-			File "..\..\..\radiant\uforadiant.exe"
-			File /r /x .gitignore "..\..\..\radiant\*"
-			File /r /x .gitignore "..\..\dlls\radiant\*"
-	SectionEnd
-
-	Section "Mapping Tools Shortcuts" SEC02B
-		SetOutPath "$INSTDIR\radiant"
-
-		CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}-${PRODUCT_VERSION}\"
-		CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}-${PRODUCT_VERSION}\MAP-Editor.lnk" "$INSTDIR\radiant\uforadiant.exe" "" "$INSTDIR\radiant\uforadiant.exe" 0
-	SectionEnd
-SectionGroupEnd
-
 Section "Source Code" SEC03
 	SetOverwrite ifnewer
 	SetOutPath "$INSTDIR"
@@ -157,7 +125,6 @@ Section "Source Code" SEC03
 		File /r /x .gitignore "..\..\..\build\*.mk"
 	SetOutPath "$INSTDIR\build\projects"
 		File "..\..\..\build\projects\*.ico"
-		File "..\..\..\build\projects\*.xml"
 		File "..\..\..\build\projects\*.manifest"
 	SetOutPath "$INSTDIR\src"
 		File /r /x .gitignore "..\..\..\src\*.h"
@@ -195,8 +162,6 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC01}  "The game and its data. You need this to play."
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC01B} "Shortcuts for the game."
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC02}  "Mapping (and modelling) tools and map source files."
-  !insertmacro MUI_DESCRIPTION_TEXT ${SEC02B} "Shortcuts for the mapping tools."
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC03}  "C-Source code for UFO:Alien Invasion."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
@@ -271,19 +236,12 @@ FunctionEnd
 Function .onSelChange
   ; This will ensure that you can't install the shortcuts without installing the target files
   SectionGetFlags ${SEC01} $GAMEFLAGS
-  SectionGetFlags ${SEC02} $MAPFLAGS
   IntOP $GAMETEST $GAMEFLAGS & ${SF_SELECTED} ; tests the activation bit
-  IntOP $MAPTEST $MAPFLAGS & ${SF_SELECTED} ; tests the activation bit
 
   IntCmp $GAMETEST 1 done
     SectionGetFlags ${SEC01B} $GAMEICONFLAGS
     IntOp $GAMEICONFLAGS $GAMEICONFLAGS & 510 ; Forces to zero the activation bit
     SectionSetFlags ${SEC01B} $GAMEICONFLAGS
-
-  IntCmp $MAPTEST 1 done
-    SectionGetFlags ${SEC02B} $MAPICONFLAGS
-    IntOp $MAPICONFLAGS $MAPICONFLAGS & 510 ; Forces to zero the activation bit
-    SectionSetFlags ${SEC02B} $MAPICONFLAGS
 
   done:
 FunctionEnd
