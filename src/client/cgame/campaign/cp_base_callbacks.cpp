@@ -525,7 +525,7 @@ static void B_FillMap_f (void)
 				continue;
 			cgi->UI_ExecuteConfunc("base_building_add %d %d %d %d \"%s\" \"%s\" \"%s\" \"%s\" \"%s\"",
 				baseCol, baseRow, int(building->size[0]), int(building->size[1]),
-				building->id, building->name, building->image, "",
+				building->id, _(building->name), building->image, "",
 				!B_IsBuildingBuiltUp(building) ? va(ngettext("%d day", "%d days", int(B_GetConstructionTimeRemain(building))),
 					int(B_GetConstructionTimeRemain(building))) : "");
 		}

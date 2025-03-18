@@ -820,7 +820,7 @@ static void TR_List_f (void)
 		}
 		/* Aircraft */
 		if (!cgi->LIST_IsEmpty(transfer->aircraft)) {
-			cgi->UI_ExecuteConfunc("tr_listaddcargo %d \"%s\" \"%s\" \"%s\"", i, "tr_cargo", "aircraft", _("Aircraft"));
+			cgi->UI_ExecuteConfunc("tr_listaddcargo %d \"%s\" \"%s\" \"%s\"", i, "tr_cargo", "aircraft", ngettext("Aircraft", "Aircraft", LIST_Count(transfer->aircraft)));
 
 			TR_ForeachAircraft(aircraft, transfer) {
 				cgi->UI_ExecuteConfunc("tr_listaddcargo %d \"%s\" \"%s\" \"%s\"", i, "tr_cargo.aircraft", va("craft%i", aircraft->idx), aircraft->name);

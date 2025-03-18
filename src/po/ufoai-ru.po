@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UFO Alien Invasion\n"
 "Report-Msgid-Bugs-To: tlh2000@users.sourceforge.net\n"
-"POT-Creation-Date: 2023-01-01 04:27+0100\n"
+"POT-Creation-Date: 2025-03-17 21:05+0100\n"
 "PO-Revision-Date: 2014-08-02 23:01+0200\n"
 "Last-Translator: Igor Gritsenko <xenomorph@thoradin.no-ip.org>\n"
 "Language-Team: \n"
@@ -8150,11 +8150,11 @@ msgid ""
 "'evil spirit' or 'demon'.\n"
 "\n"
 "Under fire, the term quickly shortened to \"Taama\", and by the time the "
-"shooting was over it had further mutated. Everyone had settled on "
-"\"Taman\" (pronounced 'tah-man') as the word that described the grey "
-"nightmares that had slaughtered them. The name still remains, but we can now "
-"say with confidence that these aliens are made of flesh and blood rather "
-"than fire and darkness.\n"
+"shooting was over it had further mutated. Everyone had settled on \"Taman\" "
+"(pronounced 'tah-man') as the word that described the grey nightmares that "
+"had slaughtered them. The name still remains, but we can now say with "
+"confidence that these aliens are made of flesh and blood rather than fire "
+"and darkness.\n"
 "\n"
 "First and probably most interesting is the fact that this creature looks "
 "almost human. Two arms, two legs, a torso and a head; bipedal locomotion; "
@@ -8342,11 +8342,11 @@ msgid ""
 "'evil spirit' or 'demon'.\n"
 "\n"
 "Under fire, the term quickly shortened to \"Taama\", and by the time the "
-"shooting was over it had further mutated. Everyone had settled on "
-"\"Taman\" (pronounced 'tah-man') as the word that described the grey "
-"nightmares that had slaughtered them. The name still remains, but we can now "
-"say with confidence that these aliens are made of flesh and blood rather "
-"than fire and darkness.\n"
+"shooting was over it had further mutated. Everyone had settled on \"Taman\" "
+"(pronounced 'tah-man') as the word that described the grey nightmares that "
+"had slaughtered them. The name still remains, but we can now say with "
+"confidence that these aliens are made of flesh and blood rather than fire "
+"and darkness.\n"
 "\n"
 "First and probably most interesting is the fact that this creature looks "
 "almost human. Two arms, two legs, a torso and a head; bipedal locomotion; "
@@ -26268,6 +26268,7 @@ msgid "Expand/Collapse"
 msgstr "Развернуть/Свернуть"
 
 #: ../base/ufos/ui/_assets_base.ufo:613 ../base/ufos/ui/research.ufo:69
+#: ../base/ufos/ui/transfer2.ufo:64
 #: client/cgame/campaign/cp_aircraft_callbacks.cpp:309
 msgid "Back to base"
 msgstr "Вернуться к обзору базы"
@@ -26540,10 +26541,10 @@ msgstr "Персонал"
 msgid "Facilities"
 msgstr "Модули"
 
-#: ../base/ufos/ui/base.section.transfer.lua:38
+#: ../base/ufos/ui/base.section.transfer.lua:33
 #: ../base/ufos/ui/transfer.ufo:163 ../base/ufos/ui/transfer.ufo:657
-#: ../base/ufos/ui/ufoyard.ufo:96 ../base/ufos/ui/ufoyard.ufo:248
-#: ../base/ufos/ui/ufoyard.ufo:440
+#: ../base/ufos/ui/transfer2.ufo:53 ../base/ufos/ui/ufoyard.ufo:96
+#: ../base/ufos/ui/ufoyard.ufo:248 ../base/ufos/ui/ufoyard.ufo:440
 #: client/cgame/campaign/cp_base_callbacks.cpp:329
 #: client/cgame/campaign/cp_base_callbacks.cpp:340
 #: client/cgame/campaign/cp_base_callbacks.cpp:350
@@ -26733,6 +26734,7 @@ msgid "Overwrite"
 msgstr ""
 
 #: ../base/ufos/ui/campaign.ufo:59 ../base/ufos/ui/multiplayer.ufo:868
+#: ../base/ufos/ui/multiplayer_new.ufo:68
 #: ../base/ufos/ui/popup_exitcampaign.ufo:40 ../base/ufos/ui/skirmish.ufo:173
 #: ../base/ufos/ui/tutorials.ufo:78
 msgid "BACK"
@@ -26746,12 +26748,12 @@ msgstr "ПРОДОЛЖИТЬ"
 msgid "Leave this menu and continue playing."
 msgstr "Покинуть это меню и продолжить играть."
 
-#: ../base/ufos/ui/campaign_main.ufo:58 ../base/ufos/ui/main.ufo:95
+#: ../base/ufos/ui/campaign_main.ufo:58 ../base/ufos/ui/main.ufo:73
 #: ../base/ufos/ui/missionmenu.ufo:137
 msgid "OPTIONS"
 msgstr "ОПЦИИ"
 
-#: ../base/ufos/ui/campaign_main.ufo:68 ../base/ufos/ui/main.ufo:128
+#: ../base/ufos/ui/campaign_main.ufo:68 ../base/ufos/ui/main.ufo:106
 msgid "EXIT"
 msgstr "ВЫХОД"
 
@@ -27131,8 +27133,9 @@ msgstr "Язык"
 msgid "You have to set the playername and hit the 'OK' button:"
 msgstr "Введите имя игрока и нажмите кнопку 'OK':"
 
-#: ../base/ufos/ui/initialsettings.lua:245 ../base/ufos/ui/multiplayer.ufo:1669
-#: ../base/ufos/ui/sys_popup.ufo:51 ../base/ufos/ui/sys_popup.ufo:114
+#: ../base/ufos/ui/initialsettings.lua:245
+#: ../base/ufos/ui/popup_serverpassword.ufo:39 ../base/ufos/ui/sys_popup.ufo:51
+#: ../base/ufos/ui/sys_popup.ufo:114
 msgid "OK"
 msgstr "ОК"
 
@@ -27149,7 +27152,7 @@ msgstr "Операции"
 msgid "Aliens killed"
 msgstr "Пришельцев убито:"
 
-#: ../base/ufos/ui/irc.ufo:23 ../base/ufos/ui/multiplayer.ufo:1720
+#: ../base/ufos/ui/irc.ufo:23 ../base/ufos/ui/multiplayer_invite.ufo:42
 msgid "Lobby"
 msgstr "Холл"
 
@@ -27193,7 +27196,7 @@ msgstr "Не подключено"
 msgid "You are not connected to the lobby. Do you want to connect?"
 msgstr "Вы не вошли в холл. Хотите присоединиться?"
 
-#: ../base/ufos/ui/irc.ufo:295 ../base/ufos/ui/multiplayer.ufo:1599
+#: ../base/ufos/ui/irc.ufo:295 ../base/ufos/ui/serverinfo.ufo:217
 msgid "Connect"
 msgstr "Соединиться"
 
@@ -27245,39 +27248,23 @@ msgstr "Переиграть операцию"
 msgid "Mark all messages read"
 msgstr "Отметить все сообщения прочитанными"
 
-#: ../base/ufos/ui/main.ufo:27
-msgid "Facebook"
-msgstr "Фейсбук"
-
-#: ../base/ufos/ui/main.ufo:28
-msgid "Like us on facebook"
-msgstr "Поставить лайк на Фейсбук"
-
-#: ../base/ufos/ui/main.ufo:40
-msgid "Twitter"
-msgstr "Твиттер"
-
-#: ../base/ufos/ui/main.ufo:41
-msgid "Follow us on twitter"
-msgstr "Следить за нами на Твиттере"
-
-#: ../base/ufos/ui/main.ufo:62
+#: ../base/ufos/ui/main.ufo:36
 msgid "CAMPAIGN"
 msgstr "КАМПАНИЯ"
 
-#: ../base/ufos/ui/main.ufo:73
+#: ../base/ufos/ui/main.ufo:47
 msgid "SKIRMISH"
 msgstr "СТЫЧКА"
 
-#: ../base/ufos/ui/main.ufo:84
+#: ../base/ufos/ui/main.ufo:58
 msgid "MULTIPLAYER"
 msgstr "МУЛЬТИПЛЕЕР"
 
-#: ../base/ufos/ui/main.ufo:106 ../base/ufos/ui/tutorials.ufo:34
+#: ../base/ufos/ui/main.ufo:84 ../base/ufos/ui/tutorials.ufo:34
 msgid "TUTORIALS"
 msgstr "ОБУЧЕНИЕ"
 
-#: ../base/ufos/ui/main.ufo:117
+#: ../base/ufos/ui/main.ufo:95
 msgid "DEVELOPERS"
 msgstr "РАЗРАБОТЧИКИ"
 
@@ -27536,6 +27523,18 @@ msgstr "Автобой"
 msgid "Do you really want to abort this mission?"
 msgstr "Вы уверены, что этот объект необходимо демонтировать?"
 
+#: ../base/ufos/ui/multiplayer.host.lua:34
+msgid "HOST"
+msgstr ""
+
+#: ../base/ufos/ui/multiplayer.join.lua:34 ../base/ufos/ui/multiplayer.ufo:226
+msgid "JOIN"
+msgstr "ПРИСОЕДИНИТЬСЯ"
+
+#: ../base/ufos/ui/multiplayer.team.lua:34 ../base/ufos/ui/multiplayer.ufo:244
+msgid "TEAM"
+msgstr "КОМАНДА"
+
 #: ../base/ufos/ui/multiplayer.ufo:35
 msgid "Delete this savegame"
 msgstr "Удалить это сохранение"
@@ -27551,14 +27550,6 @@ msgstr "Удалить эту закладку"
 #: ../base/ufos/ui/multiplayer.ufo:93
 msgid "Currently loaded"
 msgstr "В настоящее время загружены"
-
-#: ../base/ufos/ui/multiplayer.ufo:226
-msgid "JOIN"
-msgstr "ПРИСОЕДИНИТЬСЯ"
-
-#: ../base/ufos/ui/multiplayer.ufo:244
-msgid "TEAM"
-msgstr "КОМАНДА"
 
 #: ../base/ufos/ui/multiplayer.ufo:260
 msgid "Gametype:"
@@ -27596,7 +27587,7 @@ msgstr "Сделать этот сервер общедоступным:"
 msgid "Server-Password:"
 msgstr "Пароль сервера:"
 
-#: ../base/ufos/ui/multiplayer.ufo:486 ../base/ufos/ui/multiplayer.ufo:1302
+#: ../base/ufos/ui/multiplayer.ufo:486 ../base/ufos/ui/multiplayer_wait.ufo:301
 msgid "RCON-Password:"
 msgstr "RCON Пароль:"
 
@@ -27620,20 +27611,20 @@ msgstr "Максимум игроков:"
 msgid "Sets the max allowed clients to connect"
 msgstr "Устанавливает максимальное число игроков для соединения"
 
-#: ../base/ufos/ui/multiplayer.ufo:564 ../base/ufos/ui/multiplayer.ufo:1201
+#: ../base/ufos/ui/multiplayer.ufo:564 ../base/ufos/ui/multiplayer_wait.ufo:200
 msgid "Max. soldiers per team:"
 msgstr "Максимум бойцов в отряде:"
 
-#: ../base/ufos/ui/multiplayer.ufo:565 ../base/ufos/ui/multiplayer.ufo:1202
-#: ../base/ufos/ui/multiplayer.ufo:1252
+#: ../base/ufos/ui/multiplayer.ufo:565 ../base/ufos/ui/multiplayer_wait.ufo:201
+#: ../base/ufos/ui/multiplayer_wait.ufo:251
 msgid "Sets the max allowed soldiers per team"
 msgstr "Устанавливает максимальное число бойцов в отряде"
 
-#: ../base/ufos/ui/multiplayer.ufo:590 ../base/ufos/ui/multiplayer.ufo:1226
+#: ../base/ufos/ui/multiplayer.ufo:590 ../base/ufos/ui/multiplayer_wait.ufo:225
 msgid "Max. soldiers per player:"
 msgstr "Максимум бойцов у игрока:"
 
-#: ../base/ufos/ui/multiplayer.ufo:591 ../base/ufos/ui/multiplayer.ufo:1227
+#: ../base/ufos/ui/multiplayer.ufo:591 ../base/ufos/ui/multiplayer_wait.ufo:226
 msgid "Sets the max allowed soldiers per player when in teamplay"
 msgstr ""
 "Устанавливает максимальное число бойцов у игрока во время командной игры"
@@ -27707,118 +27698,78 @@ msgstr "Играющие"
 msgid "Invalid"
 msgstr "Недействительный"
 
-#: ../base/ufos/ui/multiplayer.ufo:1063
-msgid "Players connected"
-msgstr "Подключенные игроки"
-
-#: ../base/ufos/ui/multiplayer.ufo:1113
-msgid "Team selection"
-msgstr "Выбор отряда"
-
-#: ../base/ufos/ui/multiplayer.ufo:1128
-msgid "Team preference:"
-msgstr "Предпочтительный отряд:"
-
-#: ../base/ufos/ui/multiplayer.ufo:1144
-msgid "Next free team"
-msgstr "Следующий свободный отряд"
-
-#: ../base/ufos/ui/multiplayer.ufo:1157
-msgid "Previous free team"
-msgstr "Предыдущий свободный отряд"
-
-#: ../base/ufos/ui/multiplayer.ufo:1169 ../base/ufos/ui/multiplayer.ufo:1178
-msgid "Finish the teamselection and start the game"
-msgstr "Закончить выбор отряда и запустить игру"
-
-#: ../base/ufos/ui/multiplayer.ufo:1177
-msgid "Are you ready?"
-msgstr "Вы готовы?"
-
-#: ../base/ufos/ui/multiplayer.ufo:1195
-msgid "Admin control"
-msgstr "Настройки администратора"
-
-#: ../base/ufos/ui/multiplayer.ufo:1251
-msgid "Round time limit:"
-msgstr "Лимит времени раунда:"
-
-#: ../base/ufos/ui/multiplayer.ufo:1276
-msgid "Force start"
-msgstr "Принудительный старт"
-
-#: ../base/ufos/ui/multiplayer.ufo:1277
-msgid "Launch the game before all teams are ready"
-msgstr "Запускать игру, не дожидаясь готовности всех отрядов"
-
-#: ../base/ufos/ui/multiplayer.ufo:1296
-msgid "Remote Admin Control"
-msgstr "Настройки удаленного администрирования"
-
-#: ../base/ufos/ui/multiplayer.ufo:1404
-msgid "Server Info"
-msgstr "Информация о сервере"
-
-#: ../base/ufos/ui/multiplayer.ufo:1471
-msgid "Map screenshots"
-msgstr "Скриншоты карты"
-
-#: ../base/ufos/ui/multiplayer.ufo:1545
-msgid "Userlist"
-msgstr "Пользователи"
-
-#: ../base/ufos/ui/multiplayer.ufo:1563 ../base/ufos/ui/options.ufo:207
-msgid "Name"
-msgstr "Имя"
-
-#: ../base/ufos/ui/multiplayer.ufo:1573
-#: ../base/ufos/ui/popup_baseattack.ufo:279
-msgid "Team"
-msgstr "Отряд"
-
-#: ../base/ufos/ui/multiplayer.ufo:1607
-msgid "Bookmark"
-msgstr "Избранное"
-
-#: ../base/ufos/ui/multiplayer.ufo:1608
-msgid "Add server to bookmarks"
-msgstr "Добавить сервер в закладки"
-
-#: ../base/ufos/ui/multiplayer.ufo:1618
-msgid "Leave Serverbrowser"
-msgstr "Покинуть обзор серверов"
-
-#: ../base/ufos/ui/multiplayer.ufo:1646
-msgid "Enter server password"
-msgstr "Введите пароль сервера"
-
-#: ../base/ufos/ui/multiplayer.ufo:1654
-msgid "Password:"
-msgstr "Пароль:"
-
-#: ../base/ufos/ui/multiplayer.ufo:1692
+#: ../base/ufos/ui/multiplayer_invite.ufo:14
 msgid "Game invitation"
 msgstr "Приглашение в игру"
 
-#: ../base/ufos/ui/multiplayer.ufo:1707
+#: ../base/ufos/ui/multiplayer_invite.ufo:29
 msgid "Server info"
 msgstr "Информация о сервере"
 
-#: ../base/ufos/ui/multiplayer.ufo:1708
+#: ../base/ufos/ui/multiplayer_invite.ufo:30
 msgid "Show server information"
 msgstr "Показать информацию о сервере"
 
-#: ../base/ufos/ui/multiplayer.ufo:1721
+#: ../base/ufos/ui/multiplayer_invite.ufo:43
 msgid "Go into the lobby"
 msgstr "Пойти в холл"
 
-#: ../base/ufos/ui/multiplayer.ufo:1730
+#: ../base/ufos/ui/multiplayer_invite.ufo:52
 msgid ""
 "You received a invitation to take part of a multiplayer game. Hit the "
 "connect button to connect to the server"
 msgstr ""
 "Вы получили приглашение к участию в сетевой игре. Нажмите кнопку подключения "
 "для соединения с сервером"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:62
+msgid "Players connected"
+msgstr "Подключенные игроки"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:112
+msgid "Team selection"
+msgstr "Выбор отряда"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:127
+msgid "Team preference:"
+msgstr "Предпочтительный отряд:"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:143
+msgid "Next free team"
+msgstr "Следующий свободный отряд"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:156
+msgid "Previous free team"
+msgstr "Предыдущий свободный отряд"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:168
+#: ../base/ufos/ui/multiplayer_wait.ufo:177
+msgid "Finish the teamselection and start the game"
+msgstr "Закончить выбор отряда и запустить игру"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:176
+msgid "Are you ready?"
+msgstr "Вы готовы?"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:194
+msgid "Admin control"
+msgstr "Настройки администратора"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:250
+msgid "Round time limit:"
+msgstr "Лимит времени раунда:"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:275
+msgid "Force start"
+msgstr "Принудительный старт"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:276
+msgid "Launch the game before all teams are ready"
+msgstr "Запускать игру, не дожидаясь готовности всех отрядов"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:295
+msgid "Remote Admin Control"
+msgstr "Настройки удаленного администрирования"
 
 #: ../base/ufos/ui/options.ufo:109 ../base/ufos/ui/options.ufo:110
 msgid "GENERAL"
@@ -27844,6 +27795,10 @@ msgstr "ГЕЙМПЛЕЙ"
 #: ../base/ufos/ui/options.ufo:2431 ../base/ufos/ui/options.ufo:2569
 msgid "DONE"
 msgstr "ГОТОВО"
+
+#: ../base/ufos/ui/options.ufo:207 ../base/ufos/ui/serverinfo.ufo:181
+msgid "Name"
+msgstr "Имя"
 
 #: ../base/ufos/ui/options.ufo:231
 msgid "Language Settings"
@@ -28275,7 +28230,7 @@ msgstr "Фильтрование текстур"
 #: ../base/ufos/ui/options.ufo:2234
 #: client/cgame/campaign/cp_basedefence_callbacks.cpp:215
 #: client/cgame/campaign/cp_basedefence_callbacks.cpp:618
-#: client/cgame/campaign/cp_ufopedia.cpp:209 client/input/cl_joystick.cpp:280
+#: client/cgame/campaign/cp_ufopedia.cpp:209 client/input/cl_joystick.cpp:276
 msgid "None"
 msgstr "Нет"
 
@@ -28403,6 +28358,10 @@ msgstr "Поднять самолёт в воздух"
 #: ../base/ufos/ui/popup_baseattack.ufo:266
 msgid "Disable Power Plant"
 msgstr "Отключить электростанцию"
+
+#: ../base/ufos/ui/popup_baseattack.ufo:279 ../base/ufos/ui/serverinfo.ufo:191
+msgid "Team"
+msgstr "Отряд"
 
 #: ../base/ufos/ui/popup_baseattack.ufo:280
 msgid "Assemble defend team"
@@ -28614,6 +28573,14 @@ msgstr ""
 msgid "Load"
 msgstr "Загрузить"
 
+#: ../base/ufos/ui/popup_serverpassword.ufo:16
+msgid "Enter server password"
+msgstr "Введите пароль сервера"
+
+#: ../base/ufos/ui/popup_serverpassword.ufo:24
+msgid "Password:"
+msgstr "Пароль:"
+
 #: ../base/ufos/ui/popup_transferlist.ufo:17
 msgid "From:"
 msgstr "Из:"
@@ -28702,6 +28669,30 @@ msgstr "Размер лаборатории"
 #: ../base/ufos/ui/research.ufo:380
 msgid "BUILD LAB"
 msgstr "ПОСТРОИТЬ ЛАБОРАТОРИЮ"
+
+#: ../base/ufos/ui/serverinfo.ufo:22
+msgid "Server Info"
+msgstr "Информация о сервере"
+
+#: ../base/ufos/ui/serverinfo.ufo:89
+msgid "Map screenshots"
+msgstr "Скриншоты карты"
+
+#: ../base/ufos/ui/serverinfo.ufo:163
+msgid "Userlist"
+msgstr "Пользователи"
+
+#: ../base/ufos/ui/serverinfo.ufo:225
+msgid "Bookmark"
+msgstr "Избранное"
+
+#: ../base/ufos/ui/serverinfo.ufo:226
+msgid "Add server to bookmarks"
+msgstr "Добавить сервер в закладки"
+
+#: ../base/ufos/ui/serverinfo.ufo:236
+msgid "Leave Serverbrowser"
+msgstr "Покинуть обзор серверов"
 
 #: ../base/ufos/ui/skirmish.ufo:60
 msgid "<1>"
@@ -30700,8 +30691,8 @@ msgstr ""
 #: client/cgame/campaign/cp_market_callbacks.cpp:180
 #: client/cgame/campaign/cp_save_callbacks.cpp:152
 #: client/cgame/campaign/cp_save_callbacks.cpp:154
-#: client/cgame/cl_game_team.cpp:304 client/cgame/cl_game_team.cpp:314
-#: client/cgame/cl_game_team.cpp:319
+#: client/cgame/cl_game_team.cpp:301 client/cgame/cl_game_team.cpp:311
+#: client/cgame/cl_game_team.cpp:316
 msgid "Note"
 msgstr "ЗАМЕТКА"
 
@@ -30930,7 +30921,7 @@ msgstr "Не получается нанять служащего"
 
 #: client/cgame/campaign/cp_event.cpp:529
 #: client/cgame/campaign/cp_messages.cpp:321
-#: client/cgame/campaign/cp_save.cpp:316 client/cgame/campaign/cp_save.cpp:339
+#: client/cgame/campaign/cp_save.cpp:317 client/cgame/campaign/cp_save.cpp:340
 #: client/cgame/campaign/cp_time.cpp:117
 #: client/cgame/campaign/cp_ufopedia.cpp:524
 #: client/cgame/campaign/cp_ufopedia.cpp:529
@@ -31925,11 +31916,11 @@ msgstr ""
 msgid "Saving is not possible: No base is built."
 msgstr ""
 
-#: client/cgame/campaign/cp_save.cpp:350
+#: client/cgame/campaign/cp_save.cpp:347
 msgid "Could not allocate enough memory to save this game"
 msgstr "Не могу выделить достаточно памяти для сохранения игры"
 
-#: client/cgame/campaign/cp_save.cpp:373
+#: client/cgame/campaign/cp_save.cpp:370
 msgid "Memory error compressing save-game data - set save_compressed cvar to 0"
 msgstr ""
 "Ошибка памяти при компрессии данных сохранённой игры. Выставьте переменную "
@@ -32468,19 +32459,19 @@ msgstr "Атаковать НЛО - «Носитель»"
 msgid "Launch"
 msgstr "Запуск"
 
-#: client/cgame/cl_game_team.cpp:304
+#: client/cgame/cl_game_team.cpp:301
 msgid "Error saving team. Nothing to save yet."
 msgstr "Ошибка сохранения отряда. Ещё нечего сохранять."
 
-#: client/cgame/cl_game_team.cpp:310
+#: client/cgame/cl_game_team.cpp:307
 msgid "New Team"
 msgstr "Новый отряд"
 
-#: client/cgame/cl_game_team.cpp:314
+#: client/cgame/cl_game_team.cpp:311
 msgid "Error saving team. Too many teams!"
 msgstr "Ошибка при сохранении отряда. Слишком много отрядов!"
 
-#: client/cgame/cl_game_team.cpp:319
+#: client/cgame/cl_game_team.cpp:316
 msgid "Error saving team. Check free disk space!"
 msgstr "Ошибка сохранения отряда. Проверьте, достаточно ли места на диске!"
 
@@ -32953,107 +32944,107 @@ msgstr "впечатляюще"
 msgid "Superhuman"
 msgstr "уникально"
 
-#: client/input/cl_input.cpp:1221
+#: client/input/cl_input.cpp:1076
 msgid "Rotate battlescape camera anti-clockwise"
 msgstr "Вращать камеру на поле боя против часовой стрелки"
 
-#: client/input/cl_input.cpp:1223
+#: client/input/cl_input.cpp:1078
 msgid "Rotate battlescape camera clockwise"
 msgstr "Вращать камеру на поле боя по часовой стрелке"
 
-#: client/input/cl_input.cpp:1225
+#: client/input/cl_input.cpp:1080
 msgid "Tilt battlescape camera up"
 msgstr "Наклонить камеру на поле боя вверх"
 
-#: client/input/cl_input.cpp:1227
+#: client/input/cl_input.cpp:1082
 msgid "Tilt battlescape camera down"
 msgstr "Наклонить камеру на поле боя вниз"
 
-#: client/input/cl_input.cpp:1229
+#: client/input/cl_input.cpp:1084
 msgid "Move battlescape camera"
 msgstr "Переместить камеру на поле боя"
 
-#: client/input/cl_input.cpp:1231
+#: client/input/cl_input.cpp:1086
 msgid "Move battlescape camera left"
 msgstr "Переместить камеру на поле боя влево"
 
-#: client/input/cl_input.cpp:1233
+#: client/input/cl_input.cpp:1088
 msgid "Move battlescape camera top left"
 msgstr "Переместить камеру на поле боя влево-вверх"
 
-#: client/input/cl_input.cpp:1235
+#: client/input/cl_input.cpp:1090
 msgid "Move battlescape camera bottom left"
 msgstr "Переместить камеру на поле боя влево-вниз"
 
-#: client/input/cl_input.cpp:1237
+#: client/input/cl_input.cpp:1092
 msgid "Move battlescape camera right"
 msgstr "Переместить камеру на поле боя вправо"
 
-#: client/input/cl_input.cpp:1239
+#: client/input/cl_input.cpp:1094
 msgid "Move battlescape camera top right"
 msgstr "Переместить камеру на поле боя вправо-вверх"
 
-#: client/input/cl_input.cpp:1241
+#: client/input/cl_input.cpp:1096
 msgid "Move battlescape camera bottom right"
 msgstr "Переместить камеру на поле боя вправо-вниз"
 
-#: client/input/cl_input.cpp:1243
+#: client/input/cl_input.cpp:1098
 msgid "Move battlescape camera forward"
 msgstr "Переместить камеру на поле боя вперёд"
 
-#: client/input/cl_input.cpp:1245
+#: client/input/cl_input.cpp:1100
 msgid "Move battlescape camera backward"
 msgstr "Переместить камеру на поле боя назад"
 
-#: client/input/cl_input.cpp:1247 client/input/cl_input.cpp:1271
+#: client/input/cl_input.cpp:1102 client/input/cl_input.cpp:1126
 msgid "Zoom in"
 msgstr "Увеличить масштаб"
 
-#: client/input/cl_input.cpp:1249 client/input/cl_input.cpp:1272
+#: client/input/cl_input.cpp:1104 client/input/cl_input.cpp:1127
 msgid "Zoom out"
 msgstr "Уменьшить масштаб"
 
-#: client/input/cl_input.cpp:1252
+#: client/input/cl_input.cpp:1107
 msgid "Left mouse button click (menu)"
 msgstr "Левая кнопка мыши (меню)"
 
-#: client/input/cl_input.cpp:1254
+#: client/input/cl_input.cpp:1109
 msgid "Middle mouse button click (menu)"
 msgstr "Средняя кнопка мыши (меню)"
 
-#: client/input/cl_input.cpp:1256
+#: client/input/cl_input.cpp:1111
 msgid "Right mouse button click (menu)"
 msgstr "Правая кнопка мыши (меню)"
 
-#: client/input/cl_input.cpp:1258
+#: client/input/cl_input.cpp:1113
 msgid "Mouse wheel up"
 msgstr "Вращение колеса мышки вверх"
 
-#: client/input/cl_input.cpp:1259
+#: client/input/cl_input.cpp:1114
 msgid "Mouse wheel down"
 msgstr "Прокрутка колеса вниз"
 
-#: client/input/cl_input.cpp:1260
+#: client/input/cl_input.cpp:1115
 msgid "Select objects/Walk to a square/In fire mode, fire etc"
 msgstr "Выбрать объекты/Идти в квадрат/В режиме огня, огонь и т.д."
 
-#: client/input/cl_input.cpp:1262
+#: client/input/cl_input.cpp:1117
 msgid "Rotate Battlescape/In fire mode, cancel action"
 msgstr "Вращать экран/В режиме огня, отменить действие"
 
-#: client/input/cl_input.cpp:1264
+#: client/input/cl_input.cpp:1119
 msgid "Turn soldier toward mouse pointer"
 msgstr "Повернуть солдата к указателю мыши"
 
-#: client/input/cl_input.cpp:1266
+#: client/input/cl_input.cpp:1121
 msgid "Toggles the hud radar mode"
 msgstr "Переключить отображение радара"
 
-#: client/input/cl_input.cpp:1269
+#: client/input/cl_input.cpp:1124
 msgid "Slice through terrain at a higher level"
 msgstr "Переключение между уровнями карты по возрастанию"
 
-#: client/input/cl_input.cpp:1270
+#: client/input/cl_input.cpp:1125
 msgid "Slice through terrain at a lower level"
 msgstr "Переключение между уровнями карты по убыванию"
 
@@ -33258,6 +33249,18 @@ msgstr "пришелец"
 #: po/OTHER_STRINGS:6
 msgid "Take a screenshot"
 msgstr "Сделать скриншот"
+
+#~ msgid "Facebook"
+#~ msgstr "Фейсбук"
+
+#~ msgid "Like us on facebook"
+#~ msgstr "Поставить лайк на Фейсбук"
+
+#~ msgid "Twitter"
+#~ msgstr "Твиттер"
+
+#~ msgid "Follow us on twitter"
+#~ msgstr "Следить за нами на Твиттере"
 
 #~ msgid "Previous base"
 #~ msgstr "Предыдущая база"

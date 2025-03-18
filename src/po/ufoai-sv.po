@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UFO Alien Invasion\n"
 "Report-Msgid-Bugs-To: tlh2000@users.sourceforge.net\n"
-"POT-Creation-Date: 2023-01-01 04:27+0100\n"
+"POT-Creation-Date: 2025-03-17 21:05+0100\n"
 "PO-Revision-Date: 2011-03-06 12:23+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -8246,11 +8246,11 @@ msgid ""
 "'evil spirit' or 'demon'.\n"
 "\n"
 "Under fire, the term quickly shortened to \"Taama\", and by the time the "
-"shooting was over it had further mutated. Everyone had settled on "
-"\"Taman\" (pronounced 'tah-man') as the word that described the grey "
-"nightmares that had slaughtered them. The name still remains, but we can now "
-"say with confidence that these aliens are made of flesh and blood rather "
-"than fire and darkness.\n"
+"shooting was over it had further mutated. Everyone had settled on \"Taman\" "
+"(pronounced 'tah-man') as the word that described the grey nightmares that "
+"had slaughtered them. The name still remains, but we can now say with "
+"confidence that these aliens are made of flesh and blood rather than fire "
+"and darkness.\n"
 "\n"
 "First and probably most interesting is the fact that this creature looks "
 "almost human. Two arms, two legs, a torso and a head; bipedal locomotion; "
@@ -8337,9 +8337,9 @@ msgstr ""
 "bara \"xuRta AwmA\" -- Hinduiska för 'ond ande' eller 'demon'.\n"
 "\n"
 "I stridens hetta, förkortades ordet till \"Taama\", och när stridigheterna "
-"var över hade det muterat ytterligare. Alla hade vant sig vid "
-"\"Taman\" (uttalas 'tah-man') som ordet som beskrev de gråa mardrömmarna som "
-"hade slaktat dom. Namnet finns fortfarande kvar, men vi kan nu med största "
+"var över hade det muterat ytterligare. Alla hade vant sig vid \"Taman\" "
+"(uttalas 'tah-man') som ordet som beskrev de gråa mardrömmarna som hade "
+"slaktat dom. Namnet finns fortfarande kvar, men vi kan nu med största "
 "säkerhet säja att dessa utomjordingar snarare är gjord av kött och blod än "
 "av eld och mörker.\n"
 "\n"
@@ -8376,11 +8376,11 @@ msgid ""
 "'evil spirit' or 'demon'.\n"
 "\n"
 "Under fire, the term quickly shortened to \"Taama\", and by the time the "
-"shooting was over it had further mutated. Everyone had settled on "
-"\"Taman\" (pronounced 'tah-man') as the word that described the grey "
-"nightmares that had slaughtered them. The name still remains, but we can now "
-"say with confidence that these aliens are made of flesh and blood rather "
-"than fire and darkness.\n"
+"shooting was over it had further mutated. Everyone had settled on \"Taman\" "
+"(pronounced 'tah-man') as the word that described the grey nightmares that "
+"had slaughtered them. The name still remains, but we can now say with "
+"confidence that these aliens are made of flesh and blood rather than fire "
+"and darkness.\n"
 "\n"
 "First and probably most interesting is the fact that this creature looks "
 "almost human. Two arms, two legs, a torso and a head; bipedal locomotion; "
@@ -8464,11 +8464,11 @@ msgstr ""
 "'evil spirit' or 'demon'.\n"
 "\n"
 "Under fire, the term quickly shortened to \"Taama\", and by the time the "
-"shooting was over it had further mutated. Everyone had settled on "
-"\"Taman\" (pronounced 'tah-man') as the word that described the grey "
-"nightmares that had slaughtered them. The name still remains, but we can now "
-"say with confidence that these aliens are made of flesh and blood rather "
-"than fire and darkness.\n"
+"shooting was over it had further mutated. Everyone had settled on \"Taman\" "
+"(pronounced 'tah-man') as the word that described the grey nightmares that "
+"had slaughtered them. The name still remains, but we can now say with "
+"confidence that these aliens are made of flesh and blood rather than fire "
+"and darkness.\n"
 "\n"
 "First and probably most interesting is the fact that this creature looks "
 "almost human. Two arms, two legs, a torso and a head; bipedal locomotion; "
@@ -25694,6 +25694,7 @@ msgid "Expand/Collapse"
 msgstr ""
 
 #: ../base/ufos/ui/_assets_base.ufo:613 ../base/ufos/ui/research.ufo:69
+#: ../base/ufos/ui/transfer2.ufo:64
 #: client/cgame/campaign/cp_aircraft_callbacks.cpp:309
 #, fuzzy
 msgid "Back to base"
@@ -26092,10 +26093,10 @@ msgstr "Anställda"
 msgid "Facilities"
 msgstr "Basfaciliteter"
 
-#: ../base/ufos/ui/base.section.transfer.lua:38
+#: ../base/ufos/ui/base.section.transfer.lua:33
 #: ../base/ufos/ui/transfer.ufo:163 ../base/ufos/ui/transfer.ufo:657
-#: ../base/ufos/ui/ufoyard.ufo:96 ../base/ufos/ui/ufoyard.ufo:248
-#: ../base/ufos/ui/ufoyard.ufo:440
+#: ../base/ufos/ui/transfer2.ufo:53 ../base/ufos/ui/ufoyard.ufo:96
+#: ../base/ufos/ui/ufoyard.ufo:248 ../base/ufos/ui/ufoyard.ufo:440
 #: client/cgame/campaign/cp_base_callbacks.cpp:329
 #: client/cgame/campaign/cp_base_callbacks.cpp:340
 #: client/cgame/campaign/cp_base_callbacks.cpp:350
@@ -26293,6 +26294,7 @@ msgid "Overwrite"
 msgstr ""
 
 #: ../base/ufos/ui/campaign.ufo:59 ../base/ufos/ui/multiplayer.ufo:868
+#: ../base/ufos/ui/multiplayer_new.ufo:68
 #: ../base/ufos/ui/popup_exitcampaign.ufo:40 ../base/ufos/ui/skirmish.ufo:173
 #: ../base/ufos/ui/tutorials.ufo:78
 msgid "BACK"
@@ -26307,12 +26309,12 @@ msgstr ""
 msgid "Leave this menu and continue playing."
 msgstr "Läs in senaste sparade spelet eller fortsätt spela"
 
-#: ../base/ufos/ui/campaign_main.ufo:58 ../base/ufos/ui/main.ufo:95
+#: ../base/ufos/ui/campaign_main.ufo:58 ../base/ufos/ui/main.ufo:73
 #: ../base/ufos/ui/missionmenu.ufo:137
 msgid "OPTIONS"
 msgstr ""
 
-#: ../base/ufos/ui/campaign_main.ufo:68 ../base/ufos/ui/main.ufo:128
+#: ../base/ufos/ui/campaign_main.ufo:68 ../base/ufos/ui/main.ufo:106
 msgid "EXIT"
 msgstr ""
 
@@ -26724,8 +26726,9 @@ msgstr "Språk"
 msgid "You have to set the playername and hit the 'OK' button:"
 msgstr "Du måste ange spelarens namn och tryck på \"OK\"-knappen:"
 
-#: ../base/ufos/ui/initialsettings.lua:245 ../base/ufos/ui/multiplayer.ufo:1669
-#: ../base/ufos/ui/sys_popup.ufo:51 ../base/ufos/ui/sys_popup.ufo:114
+#: ../base/ufos/ui/initialsettings.lua:245
+#: ../base/ufos/ui/popup_serverpassword.ufo:39 ../base/ufos/ui/sys_popup.ufo:51
+#: ../base/ufos/ui/sys_popup.ufo:114
 msgid "OK"
 msgstr "OK"
 
@@ -26743,7 +26746,7 @@ msgstr "Uppdrag"
 msgid "Aliens killed"
 msgstr "Utomjordingar dödade\t%i\n"
 
-#: ../base/ufos/ui/irc.ufo:23 ../base/ufos/ui/multiplayer.ufo:1720
+#: ../base/ufos/ui/irc.ufo:23 ../base/ufos/ui/multiplayer_invite.ufo:42
 msgid "Lobby"
 msgstr "Lobby"
 
@@ -26787,7 +26790,7 @@ msgstr "Inte ansluten"
 msgid "You are not connected to the lobby. Do you want to connect?"
 msgstr "Du är inte ansluten till lobbyn. Vill du ansluta?"
 
-#: ../base/ufos/ui/irc.ufo:295 ../base/ufos/ui/multiplayer.ufo:1599
+#: ../base/ufos/ui/irc.ufo:295 ../base/ufos/ui/serverinfo.ufo:217
 msgid "Connect"
 msgstr "Anslut"
 
@@ -26840,40 +26843,23 @@ msgstr "Försök igen"
 msgid "Mark all messages read"
 msgstr "Markera alla meddeladen som lästa"
 
-#: ../base/ufos/ui/main.ufo:27
-msgid "Facebook"
-msgstr ""
-
-#: ../base/ufos/ui/main.ufo:28
-msgid "Like us on facebook"
-msgstr ""
-
-#: ../base/ufos/ui/main.ufo:40
-#, fuzzy
-msgid "Twitter"
-msgstr "Sitters"
-
-#: ../base/ufos/ui/main.ufo:41
-msgid "Follow us on twitter"
-msgstr ""
-
-#: ../base/ufos/ui/main.ufo:62
+#: ../base/ufos/ui/main.ufo:36
 msgid "CAMPAIGN"
 msgstr ""
 
-#: ../base/ufos/ui/main.ufo:73
+#: ../base/ufos/ui/main.ufo:47
 msgid "SKIRMISH"
 msgstr ""
 
-#: ../base/ufos/ui/main.ufo:84
+#: ../base/ufos/ui/main.ufo:58
 msgid "MULTIPLAYER"
 msgstr ""
 
-#: ../base/ufos/ui/main.ufo:106 ../base/ufos/ui/tutorials.ufo:34
+#: ../base/ufos/ui/main.ufo:84 ../base/ufos/ui/tutorials.ufo:34
 msgid "TUTORIALS"
 msgstr ""
 
-#: ../base/ufos/ui/main.ufo:117
+#: ../base/ufos/ui/main.ufo:95
 msgid "DEVELOPERS"
 msgstr ""
 
@@ -27145,6 +27131,18 @@ msgstr "Automatiskt uppdrag"
 msgid "Do you really want to abort this mission?"
 msgstr "Är du säker på att du vill förstöra den här byggnaden?"
 
+#: ../base/ufos/ui/multiplayer.host.lua:34
+msgid "HOST"
+msgstr ""
+
+#: ../base/ufos/ui/multiplayer.join.lua:34 ../base/ufos/ui/multiplayer.ufo:226
+msgid "JOIN"
+msgstr ""
+
+#: ../base/ufos/ui/multiplayer.team.lua:34 ../base/ufos/ui/multiplayer.ufo:244
+msgid "TEAM"
+msgstr ""
+
 #: ../base/ufos/ui/multiplayer.ufo:35
 #, fuzzy
 msgid "Delete this savegame"
@@ -27162,14 +27160,6 @@ msgstr "Ta bort det här bokmärket"
 #, fuzzy
 msgid "Currently loaded"
 msgstr "Aktuell laddning:"
-
-#: ../base/ufos/ui/multiplayer.ufo:226
-msgid "JOIN"
-msgstr ""
-
-#: ../base/ufos/ui/multiplayer.ufo:244
-msgid "TEAM"
-msgstr ""
 
 #: ../base/ufos/ui/multiplayer.ufo:260
 msgid "Gametype:"
@@ -27208,7 +27198,7 @@ msgstr "Gör den här servern publik:"
 msgid "Server-Password:"
 msgstr "Lösenord för server:"
 
-#: ../base/ufos/ui/multiplayer.ufo:486 ../base/ufos/ui/multiplayer.ufo:1302
+#: ../base/ufos/ui/multiplayer.ufo:486 ../base/ufos/ui/multiplayer_wait.ufo:301
 msgid "RCON-Password:"
 msgstr "RCON-lösenord:"
 
@@ -27234,20 +27224,20 @@ msgstr "Max. klienter:"
 msgid "Sets the max allowed clients to connect"
 msgstr "Ställer in max tillåtna klienter att ansluta"
 
-#: ../base/ufos/ui/multiplayer.ufo:564 ../base/ufos/ui/multiplayer.ufo:1201
+#: ../base/ufos/ui/multiplayer.ufo:564 ../base/ufos/ui/multiplayer_wait.ufo:200
 msgid "Max. soldiers per team:"
 msgstr "Max. soldater per grupp:"
 
-#: ../base/ufos/ui/multiplayer.ufo:565 ../base/ufos/ui/multiplayer.ufo:1202
-#: ../base/ufos/ui/multiplayer.ufo:1252
+#: ../base/ufos/ui/multiplayer.ufo:565 ../base/ufos/ui/multiplayer_wait.ufo:201
+#: ../base/ufos/ui/multiplayer_wait.ufo:251
 msgid "Sets the max allowed soldiers per team"
 msgstr "Ställer in max tillåtna soldater per grupp"
 
-#: ../base/ufos/ui/multiplayer.ufo:590 ../base/ufos/ui/multiplayer.ufo:1226
+#: ../base/ufos/ui/multiplayer.ufo:590 ../base/ufos/ui/multiplayer_wait.ufo:225
 msgid "Max. soldiers per player:"
 msgstr "Max. soldater per spelare:"
 
-#: ../base/ufos/ui/multiplayer.ufo:591 ../base/ufos/ui/multiplayer.ufo:1227
+#: ../base/ufos/ui/multiplayer.ufo:591 ../base/ufos/ui/multiplayer_wait.ufo:226
 msgid "Sets the max allowed soldiers per player when in teamplay"
 msgstr "Ställer in max tillåtna soldater per spelare i lagspel"
 
@@ -27323,120 +27313,78 @@ msgstr "Spelar"
 msgid "Invalid"
 msgstr "Ogiltig"
 
-#: ../base/ufos/ui/multiplayer.ufo:1063
-msgid "Players connected"
-msgstr "Spelare anslutna"
-
-#: ../base/ufos/ui/multiplayer.ufo:1113
-msgid "Team selection"
-msgstr "Välj grupp"
-
-#: ../base/ufos/ui/multiplayer.ufo:1128
-msgid "Team preference:"
-msgstr "Lagpreferenser:"
-
-#: ../base/ufos/ui/multiplayer.ufo:1144
-msgid "Next free team"
-msgstr "Nästa lediga grupp"
-
-#: ../base/ufos/ui/multiplayer.ufo:1157
-msgid "Previous free team"
-msgstr "Föregående lediga grupp"
-
-#: ../base/ufos/ui/multiplayer.ufo:1169 ../base/ufos/ui/multiplayer.ufo:1178
-msgid "Finish the teamselection and start the game"
-msgstr "Färdigställ valet av grupp och starta spelet"
-
-#: ../base/ufos/ui/multiplayer.ufo:1177
-msgid "Are you ready?"
-msgstr "Är du redo?"
-
-#: ../base/ufos/ui/multiplayer.ufo:1195
-msgid "Admin control"
-msgstr ""
-
-#: ../base/ufos/ui/multiplayer.ufo:1251
-#, fuzzy
-msgid "Round time limit:"
-msgstr "Produktionsgräns:"
-
-#: ../base/ufos/ui/multiplayer.ufo:1276
-msgid "Force start"
-msgstr "Tvinga start"
-
-#: ../base/ufos/ui/multiplayer.ufo:1277
-#, fuzzy
-msgid "Launch the game before all teams are ready"
-msgstr "Starta spelet även om inte alla lag är med"
-
-#: ../base/ufos/ui/multiplayer.ufo:1296
-msgid "Remote Admin Control"
-msgstr ""
-
-#: ../base/ufos/ui/multiplayer.ufo:1404
-#, fuzzy
-msgid "Server Info"
-msgstr "Basinfo"
-
-#: ../base/ufos/ui/multiplayer.ufo:1471
-#, fuzzy
-msgid "Map screenshots"
-msgstr "Ta en skärmbild"
-
-#: ../base/ufos/ui/multiplayer.ufo:1545
-msgid "Userlist"
-msgstr "Användarlista"
-
-#: ../base/ufos/ui/multiplayer.ufo:1563 ../base/ufos/ui/options.ufo:207
-msgid "Name"
-msgstr "Namn"
-
-#: ../base/ufos/ui/multiplayer.ufo:1573
-#: ../base/ufos/ui/popup_baseattack.ufo:279
-msgid "Team"
-msgstr "Grupp"
-
-#: ../base/ufos/ui/multiplayer.ufo:1607
-msgid "Bookmark"
-msgstr "Bokmärk"
-
-#: ../base/ufos/ui/multiplayer.ufo:1608
-msgid "Add server to bookmarks"
-msgstr "Lägg till server som bokmärke"
-
-#: ../base/ufos/ui/multiplayer.ufo:1618
-msgid "Leave Serverbrowser"
-msgstr "Lämna serverbläddrare"
-
-#: ../base/ufos/ui/multiplayer.ufo:1646
-msgid "Enter server password"
-msgstr "Ange serverlösenord"
-
-#: ../base/ufos/ui/multiplayer.ufo:1654
-msgid "Password:"
-msgstr "Lösenord:"
-
-#: ../base/ufos/ui/multiplayer.ufo:1692
+#: ../base/ufos/ui/multiplayer_invite.ufo:14
 msgid "Game invitation"
 msgstr "Inbjudan till spel"
 
-#: ../base/ufos/ui/multiplayer.ufo:1707
+#: ../base/ufos/ui/multiplayer_invite.ufo:29
 #, fuzzy
 msgid "Server info"
 msgstr "Basinfo"
 
-#: ../base/ufos/ui/multiplayer.ufo:1708
+#: ../base/ufos/ui/multiplayer_invite.ufo:30
 msgid "Show server information"
 msgstr "Visa serverinformation"
 
-#: ../base/ufos/ui/multiplayer.ufo:1721
+#: ../base/ufos/ui/multiplayer_invite.ufo:43
 msgid "Go into the lobby"
 msgstr "Gå till lobbyn"
 
-#: ../base/ufos/ui/multiplayer.ufo:1730
+#: ../base/ufos/ui/multiplayer_invite.ufo:52
 msgid ""
 "You received a invitation to take part of a multiplayer game. Hit the "
 "connect button to connect to the server"
+msgstr ""
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:62
+msgid "Players connected"
+msgstr "Spelare anslutna"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:112
+msgid "Team selection"
+msgstr "Välj grupp"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:127
+msgid "Team preference:"
+msgstr "Lagpreferenser:"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:143
+msgid "Next free team"
+msgstr "Nästa lediga grupp"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:156
+msgid "Previous free team"
+msgstr "Föregående lediga grupp"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:168
+#: ../base/ufos/ui/multiplayer_wait.ufo:177
+msgid "Finish the teamselection and start the game"
+msgstr "Färdigställ valet av grupp och starta spelet"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:176
+msgid "Are you ready?"
+msgstr "Är du redo?"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:194
+msgid "Admin control"
+msgstr ""
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:250
+#, fuzzy
+msgid "Round time limit:"
+msgstr "Produktionsgräns:"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:275
+msgid "Force start"
+msgstr "Tvinga start"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:276
+#, fuzzy
+msgid "Launch the game before all teams are ready"
+msgstr "Starta spelet även om inte alla lag är med"
+
+#: ../base/ufos/ui/multiplayer_wait.ufo:295
+msgid "Remote Admin Control"
 msgstr ""
 
 #: ../base/ufos/ui/options.ufo:109 ../base/ufos/ui/options.ufo:110
@@ -27463,6 +27411,10 @@ msgstr ""
 #: ../base/ufos/ui/options.ufo:2431 ../base/ufos/ui/options.ufo:2569
 msgid "DONE"
 msgstr ""
+
+#: ../base/ufos/ui/options.ufo:207 ../base/ufos/ui/serverinfo.ufo:181
+msgid "Name"
+msgstr "Namn"
 
 #: ../base/ufos/ui/options.ufo:231
 msgid "Language Settings"
@@ -27952,7 +27904,7 @@ msgstr "Texturinställningar"
 #: ../base/ufos/ui/options.ufo:2234
 #: client/cgame/campaign/cp_basedefence_callbacks.cpp:215
 #: client/cgame/campaign/cp_basedefence_callbacks.cpp:618
-#: client/cgame/campaign/cp_ufopedia.cpp:209 client/input/cl_joystick.cpp:280
+#: client/cgame/campaign/cp_ufopedia.cpp:209 client/input/cl_joystick.cpp:276
 msgid "None"
 msgstr "Ingen"
 
@@ -28090,6 +28042,10 @@ msgstr "Nästa farkost"
 #, fuzzy
 msgid "Disable Power Plant"
 msgstr "Kraftverk"
+
+#: ../base/ufos/ui/popup_baseattack.ufo:279 ../base/ufos/ui/serverinfo.ufo:191
+msgid "Team"
+msgstr "Grupp"
 
 #: ../base/ufos/ui/popup_baseattack.ufo:280
 #, fuzzy
@@ -28310,6 +28266,14 @@ msgstr ""
 msgid "Load"
 msgstr "Läs in"
 
+#: ../base/ufos/ui/popup_serverpassword.ufo:16
+msgid "Enter server password"
+msgstr "Ange serverlösenord"
+
+#: ../base/ufos/ui/popup_serverpassword.ufo:24
+msgid "Password:"
+msgstr "Lösenord:"
+
 #: ../base/ufos/ui/popup_transferlist.ufo:17
 #, fuzzy
 msgid "From:"
@@ -28411,6 +28375,32 @@ msgstr "Laboratorium"
 #: ../base/ufos/ui/research.ufo:380
 msgid "BUILD LAB"
 msgstr ""
+
+#: ../base/ufos/ui/serverinfo.ufo:22
+#, fuzzy
+msgid "Server Info"
+msgstr "Basinfo"
+
+#: ../base/ufos/ui/serverinfo.ufo:89
+#, fuzzy
+msgid "Map screenshots"
+msgstr "Ta en skärmbild"
+
+#: ../base/ufos/ui/serverinfo.ufo:163
+msgid "Userlist"
+msgstr "Användarlista"
+
+#: ../base/ufos/ui/serverinfo.ufo:225
+msgid "Bookmark"
+msgstr "Bokmärk"
+
+#: ../base/ufos/ui/serverinfo.ufo:226
+msgid "Add server to bookmarks"
+msgstr "Lägg till server som bokmärke"
+
+#: ../base/ufos/ui/serverinfo.ufo:236
+msgid "Leave Serverbrowser"
+msgstr "Lämna serverbläddrare"
 
 #: ../base/ufos/ui/skirmish.ufo:60
 msgid "<1>"
@@ -30538,8 +30528,8 @@ msgstr ""
 #: client/cgame/campaign/cp_market_callbacks.cpp:180
 #: client/cgame/campaign/cp_save_callbacks.cpp:152
 #: client/cgame/campaign/cp_save_callbacks.cpp:154
-#: client/cgame/cl_game_team.cpp:304 client/cgame/cl_game_team.cpp:314
-#: client/cgame/cl_game_team.cpp:319
+#: client/cgame/cl_game_team.cpp:301 client/cgame/cl_game_team.cpp:311
+#: client/cgame/cl_game_team.cpp:316
 msgid "Note"
 msgstr "Observera"
 
@@ -30780,7 +30770,7 @@ msgstr "Anställ folk"
 
 #: client/cgame/campaign/cp_event.cpp:529
 #: client/cgame/campaign/cp_messages.cpp:321
-#: client/cgame/campaign/cp_save.cpp:316 client/cgame/campaign/cp_save.cpp:339
+#: client/cgame/campaign/cp_save.cpp:317 client/cgame/campaign/cp_save.cpp:340
 #: client/cgame/campaign/cp_time.cpp:117
 #: client/cgame/campaign/cp_ufopedia.cpp:524
 #: client/cgame/campaign/cp_ufopedia.cpp:529
@@ -31794,11 +31784,11 @@ msgstr ""
 msgid "Saving is not possible: No base is built."
 msgstr "Överföring är inte möjlig - basen saknar en fungerande hangar."
 
-#: client/cgame/campaign/cp_save.cpp:350
+#: client/cgame/campaign/cp_save.cpp:347
 msgid "Could not allocate enough memory to save this game"
 msgstr "Kunde inte allokera tillräckligt mycket minne för att spara spelet"
 
-#: client/cgame/campaign/cp_save.cpp:373
+#: client/cgame/campaign/cp_save.cpp:370
 msgid "Memory error compressing save-game data - set save_compressed cvar to 0"
 msgstr ""
 "Minnesfel vid komprimering av sparat speldata - ställ in save_compressed "
@@ -32355,22 +32345,22 @@ msgstr "UFO - Hangartyp"
 msgid "Launch"
 msgstr "Granatgevär"
 
-#: client/cgame/cl_game_team.cpp:304
+#: client/cgame/cl_game_team.cpp:301
 #, fuzzy
 msgid "Error saving team. Nothing to save yet."
 msgstr "Ingenting att spara än."
 
-#: client/cgame/cl_game_team.cpp:310
+#: client/cgame/cl_game_team.cpp:307
 #, fuzzy
 msgid "New Team"
 msgstr "NyttLag"
 
-#: client/cgame/cl_game_team.cpp:314
+#: client/cgame/cl_game_team.cpp:311
 #, fuzzy
 msgid "Error saving team. Too many teams!"
 msgstr "Ingenting att spara än."
 
-#: client/cgame/cl_game_team.cpp:319
+#: client/cgame/cl_game_team.cpp:316
 msgid "Error saving team. Check free disk space!"
 msgstr "Fel vid sparandet av grupp. Kontrollera ledigt diskutrymme!"
 
@@ -32853,115 +32843,115 @@ msgstr "Komprimering:"
 msgid "Superhuman"
 msgstr "Överlägsen"
 
-#: client/input/cl_input.cpp:1221
+#: client/input/cl_input.cpp:1076
 msgid "Rotate battlescape camera anti-clockwise"
 msgstr "Rotera slagfältskameran motsols"
 
-#: client/input/cl_input.cpp:1223
+#: client/input/cl_input.cpp:1078
 msgid "Rotate battlescape camera clockwise"
 msgstr "Rotera slagfältskameran medsols"
 
-#: client/input/cl_input.cpp:1225
+#: client/input/cl_input.cpp:1080
 msgid "Tilt battlescape camera up"
 msgstr "Vinkla slagfältskameran uppåt"
 
-#: client/input/cl_input.cpp:1227
+#: client/input/cl_input.cpp:1082
 msgid "Tilt battlescape camera down"
 msgstr "Vinkla slagfältskameran nedåt"
 
-#: client/input/cl_input.cpp:1229
+#: client/input/cl_input.cpp:1084
 #, fuzzy
 msgid "Move battlescape camera"
 msgstr "Flytta slagfältskameran åt vänster"
 
-#: client/input/cl_input.cpp:1231
+#: client/input/cl_input.cpp:1086
 msgid "Move battlescape camera left"
 msgstr "Flytta slagfältskameran åt vänster"
 
-#: client/input/cl_input.cpp:1233
+#: client/input/cl_input.cpp:1088
 #, fuzzy
 msgid "Move battlescape camera top left"
 msgstr "Flytta slagfältskameran åt vänster"
 
-#: client/input/cl_input.cpp:1235
+#: client/input/cl_input.cpp:1090
 #, fuzzy
 msgid "Move battlescape camera bottom left"
 msgstr "Flytta slagfältskameran åt vänster"
 
-#: client/input/cl_input.cpp:1237
+#: client/input/cl_input.cpp:1092
 msgid "Move battlescape camera right"
 msgstr "Flytta slagfältskameran åt höger"
 
-#: client/input/cl_input.cpp:1239
+#: client/input/cl_input.cpp:1094
 #, fuzzy
 msgid "Move battlescape camera top right"
 msgstr "Flytta slagfältskameran åt höger"
 
-#: client/input/cl_input.cpp:1241
+#: client/input/cl_input.cpp:1096
 #, fuzzy
 msgid "Move battlescape camera bottom right"
 msgstr "Flytta slagfältskameran åt höger"
 
-#: client/input/cl_input.cpp:1243
+#: client/input/cl_input.cpp:1098
 msgid "Move battlescape camera forward"
 msgstr "Flytta slagfältskameran framåt"
 
-#: client/input/cl_input.cpp:1245
+#: client/input/cl_input.cpp:1100
 msgid "Move battlescape camera backward"
 msgstr "Flytta slagfältskameran bakåt"
 
-#: client/input/cl_input.cpp:1247 client/input/cl_input.cpp:1271
+#: client/input/cl_input.cpp:1102 client/input/cl_input.cpp:1126
 msgid "Zoom in"
 msgstr "Zooma in"
 
-#: client/input/cl_input.cpp:1249 client/input/cl_input.cpp:1272
+#: client/input/cl_input.cpp:1104 client/input/cl_input.cpp:1127
 msgid "Zoom out"
 msgstr "Zooma ut"
 
-#: client/input/cl_input.cpp:1252
+#: client/input/cl_input.cpp:1107
 msgid "Left mouse button click (menu)"
 msgstr "Vänster musknappsklick (meny)"
 
-#: client/input/cl_input.cpp:1254
+#: client/input/cl_input.cpp:1109
 msgid "Middle mouse button click (menu)"
 msgstr "Mittersta musknappsklick (meny)"
 
-#: client/input/cl_input.cpp:1256
+#: client/input/cl_input.cpp:1111
 msgid "Right mouse button click (menu)"
 msgstr "Höger musknappsklick (meny)"
 
-#: client/input/cl_input.cpp:1258
+#: client/input/cl_input.cpp:1113
 msgid "Mouse wheel up"
 msgstr ""
 
-#: client/input/cl_input.cpp:1259
+#: client/input/cl_input.cpp:1114
 #, fuzzy
 msgid "Mouse wheel down"
 msgstr "Stäng fönstret"
 
-#: client/input/cl_input.cpp:1260
+#: client/input/cl_input.cpp:1115
 msgid "Select objects/Walk to a square/In fire mode, fire etc"
 msgstr "Markera objekt/Gå till ruta/I eldgivningsläge, eld etc"
 
-#: client/input/cl_input.cpp:1262
+#: client/input/cl_input.cpp:1117
 #, fuzzy
 msgid "Rotate Battlescape/In fire mode, cancel action"
 msgstr "Rotera slagfältskameran motsols"
 
-#: client/input/cl_input.cpp:1264
+#: client/input/cl_input.cpp:1119
 msgid "Turn soldier toward mouse pointer"
 msgstr "Vänd soldaten mot muspekaren"
 
-#: client/input/cl_input.cpp:1266
+#: client/input/cl_input.cpp:1121
 #, fuzzy
 msgid "Toggles the hud radar mode"
 msgstr "Växla till nästa soldat"
 
-#: client/input/cl_input.cpp:1269
+#: client/input/cl_input.cpp:1124
 msgid "Slice through terrain at a higher level"
 msgstr "Skär genom terrängen på en högre nivå"
 
-#: client/input/cl_input.cpp:1270
+#: client/input/cl_input.cpp:1125
 msgid "Slice through terrain at a lower level"
 msgstr "Skär genom terrängen på en lägre nivå"
 
@@ -33192,6 +33182,10 @@ msgstr "utomjordisk"
 #: po/OTHER_STRINGS:6
 msgid "Take a screenshot"
 msgstr "Ta en skärmbild"
+
+#, fuzzy
+#~ msgid "Twitter"
+#~ msgstr "Sitters"
 
 #, fuzzy
 #~ msgid "Previous base"
