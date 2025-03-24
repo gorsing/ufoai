@@ -1022,29 +1022,6 @@ void GAME_ParseModes (const char* name, const char** text)
 	Com_ParseBlock(name, text, cgame, cgame_vals, nullptr);
 }
 
-#ifndef HARD_LINKED_CGAME
-static bool GAME_LoadGame (const char* path, const char* name)
-{
-	char fullPath[MAX_OSPATH];
-
-	Com_sprintf(fullPath, sizeof(fullPath), "%s/cgame-%s_" CPUSTRING ".%s", path, name, SO_EXT);
-	cls.cgameLibrary = SDL_LoadObject(fullPath);
-	if (!cls.cgameLibrary) {
-		Com_sprintf(fullPath, sizeof(fullPath), "%s/cgame-%s.%s", path, name, SO_EXT);
-		cls.cgameLibrary = SDL_LoadObject(fullPath);
-	}
-
-	if (cls.cgameLibrary) {
-		Com_Printf("found at '%s'\n", path);
-		return true;
-	} else {
-		Com_Printf("not found at '%s'\n", path);
-		Com_DPrintf(DEBUG_SYSTEM, "%s\n", SDL_GetError());
-		return false;
-	}
-}
-#endif
-
 static const cgame_export_t* GAME_GetCGameAPI (const cgameType_t* t)
 {
 	const char* name = t->id;
@@ -1055,7 +1032,7 @@ static const cgame_export_t* GAME_GetCGameAPI (const cgameType_t* t)
 	Com_Printf("------- Loading cgame-%s.%s -------\n", name, SO_EXT);
 
 #ifdef PKGLIBDIR
-	GAME_LoadGame(PKGLIBDIR, name);
+	cls.cgameLibrary = Com_LoadLibrary(PKGLIBDIR, name);
 #endif
 
 	/* now run through the search paths */
@@ -1065,7 +1042,7 @@ static const cgame_export_t* GAME_GetCGameAPI (const cgameType_t* t)
 		if (!path)
 			/* couldn't find one anywhere */
 			return nullptr;
-		else if (GAME_LoadGame(path, name))
+		else if (cls.cgameLibrary = Com_LoadLibrary(path, name))
 			break;
 	}
 

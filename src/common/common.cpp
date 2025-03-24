@@ -104,6 +104,49 @@ static EventPriorityQueue eventQueue;
 
 static void Schedule_Timer(cvar_t* freq, event_func* func, event_check_func* check, void* data);
 
+/**
+ * @brief Dynamic library filename suffix list
+ */
+static const char *libNameSuffix[] = {
+	UFO_VERSION "." CPUSTRING "." SO_EXT,
+	UFO_VERSION "." SO_EXT,
+	CPUSTRING "." SO_EXT,
+	SO_EXT,
+	nullptr
+};
+
+/**
+ * @brief Attempts to load a library using a filename suffix list
+ * @param[in] path Directory to look the library for
+ * @param[in] prefix Filename prefix of the library
+ * @return Pointer to the loaded library or @c nullptr if the library couldn't be found/loaded
+ * @note The function will iterate through the libNameSuffix-es trying to find the proper filename
+ * @sa libNameSuffix
+ */
+void* Com_LoadLibrary (const char* path, const char* prefix)
+{
+	char fullPath[MAX_OSPATH];
+	void *library = nullptr;
+
+	for (int i = 0; libNameSuffix[i] != nullptr; i++) {
+		Com_sprintf(fullPath, sizeof(fullPath), "%s/%s.%s", path, prefix, libNameSuffix[i]);
+		Com_DPrintf(DEBUG_SYSTEM, "Attempting to load library: %s\n", fullPath);
+		library = SDL_LoadObject(fullPath);
+		if (library) {
+			break;
+		}
+	}
+
+	if (library) {
+		Com_Printf("Library '%s' loaded from %s\n", prefix, fullPath);
+		return library;
+	} else {
+		Com_Printf("Library '%s' could not be loaded from %s\n", prefix, path);
+		Com_DPrintf(DEBUG_SYSTEM, "%s\n", SDL_GetError());
+		return nullptr;
+	}
+}
+
 /*
 ==============================================================================
 TARGETING FUNCTIONS

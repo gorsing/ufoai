@@ -630,29 +630,6 @@ static void SV_UnloadGame (void)
 #endif
 }
 
-#ifndef HARD_LINKED_GAME
-static bool SV_LoadGame (const char* path)
-{
-	char name[MAX_OSPATH];
-
-	Com_sprintf(name, sizeof(name), "%s/game_" CPUSTRING ".%s", path, SO_EXT);
-	svs.gameLibrary = SDL_LoadObject(name);
-	if (!svs.gameLibrary) {
-		Com_sprintf(name, sizeof(name), "%s/game.%s", path, SO_EXT);
-		svs.gameLibrary = SDL_LoadObject(name);
-	}
-
-	if (svs.gameLibrary) {
-		Com_Printf("found at '%s'\n", path);
-		return true;
-	} else {
-		Com_Printf("not found at '%s'\n", path);
-		Com_DPrintf(DEBUG_SYSTEM, "%s\n", SDL_GetError());
-		return false;
-	}
-}
-#endif
-
 /**
  * @brief Loads the game shared library and calls the api init function
  */
@@ -669,7 +646,7 @@ static game_export_t* SV_GetGameAPI (game_import_t* parms)
 	Com_Printf("------- Loading game.%s -------\n", SO_EXT);
 
 #ifdef PKGLIBDIR
-	SV_LoadGame(PKGLIBDIR);
+	svs.gameLibrary = Com_LoadLibrary(PKGLIBDIR, "game");
 #endif
 
 	/* now run through the search paths */
@@ -679,7 +656,8 @@ static game_export_t* SV_GetGameAPI (game_import_t* parms)
 		if (!path)
 			/* couldn't find one anywhere */
 			return nullptr;
-		else if (SV_LoadGame(path))
+		svs.gameLibrary = Com_LoadLibrary(path, "game");
+		if (svs.gameLibrary != nullptr)
 			break;
 	}
 

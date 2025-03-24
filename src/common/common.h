@@ -250,6 +250,8 @@ public:
 	virtual ~comRestart_t () { free(static_cast<void*>(const_cast<char*>(gamedir))); }
 };
 
+void* Com_LoadLibrary(const char* path, const char* prefix);
+
 void Com_Drop(void) __attribute__((noreturn));
 void Com_Quit(void);
 void Com_BreakIntoDebugger(void);
