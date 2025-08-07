@@ -8,16 +8,45 @@ on:
 
 jobs:
   build:
-
+    name: Build & Test
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y ccache
+
+    - name: Restore ccache
+      uses: actions/cache@v4
+      with:
+        path: ~/.ccache
+        key: ccache-${{ runner.os }}-${{ github.sha }}
+        restore-keys: |
+          ccache-${{ runner.os }}-
+
+    - name: Configure
+      run: |
+        mkdir -p build
+        ./configure CC="ccache gcc" CXX="ccache g++"
+
+    - name: Build
+      run: make -j$(nproc)
+
+    - name: Run tests
       run: make check
-    - name: make distcheck
+
+    - name: Run distcheck
       run: make distcheck
+
+    - name: Save test logs if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs
+        path: |
+          tests/test-suite.log
+          */_build/sub/tests/test-suite.log
+          **/test-suite.log
+          config.log
