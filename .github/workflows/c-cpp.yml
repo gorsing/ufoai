@@ -35,6 +35,9 @@ jobs:
           libcurl4-openssl-dev \
           googletest
 
+    - name: Set up ccache in PATH
+      run: echo "/usr/lib/ccache" >> $GITHUB_PATH
+
     - name: Restore ccache
       uses: actions/cache@v4
       with:
@@ -45,8 +48,7 @@ jobs:
 
     - name: Configure
       run: |
-        mkdir -p build
-        ./configure CC="ccache gcc" CXX="ccache g++"
+        ./configure CC="gcc" CXX="g++"
 
     - name: Build
       run: make -j$(nproc)
