@@ -63,9 +63,6 @@ jobs:
     - name: Build ufo2map first
       run: make ufo2map -j$(nproc)
   
-    - name: Build tools
-      run: make tools -j$(nproc)
-
     - name: Build
       run: make -j$(nproc)
 
