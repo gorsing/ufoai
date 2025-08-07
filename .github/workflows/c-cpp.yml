@@ -14,7 +14,6 @@ jobs:
     steps:
     - name: Checkout source
       uses: actions/checkout@v4
-
     - name: Install dependencies
       run: |
         sudo apt-get update
@@ -39,6 +38,13 @@ jobs:
           libgtest-dev \
           libopenal-dev \
           googletest
+
+    - name: Build GTest (required on Ubuntu)
+      run: |
+        cd /usr/src/googletest
+        sudo cmake .
+        sudo make
+        sudo cp lib/*.a /usr/lib
 
     - name: Set up ccache in PATH
       run: echo "/usr/lib/ccache" >> $GITHUB_PATH
