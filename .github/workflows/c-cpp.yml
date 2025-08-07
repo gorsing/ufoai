@@ -60,6 +60,9 @@ jobs:
       run: |
         ./configure --disable-uforadiant CC="gcc" CXX="g++"
 
+    - name: Build tools
+      run: make tools -j$(nproc)
+
     - name: Build
       run: make -j$(nproc)
 
