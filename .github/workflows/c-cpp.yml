@@ -66,8 +66,8 @@ jobs:
     - name: Build
       run: make -j$(nproc)
 
-    - name: Run tests
-      run: make check
+    - name: Smoke test show version
+      run: ./ufo --version
 
     - name: Run distcheck
       run: make distcheck
