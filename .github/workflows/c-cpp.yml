@@ -16,7 +16,24 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y ccache
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential \
+          ccache \
+          libsdl2-dev \
+          libsdl2-mixer-dev \
+          libsdl2-ttf-dev \
+          libgtk2.0-dev \
+          libgtkglext1-dev \
+          libmxml-dev \
+          liblua5.3-dev \
+          libogg-dev \
+          libvorbis-dev \
+          libjpeg-dev \
+          libpng-dev \
+          libcurl4-openssl-dev \
+          googletest
 
     - name: Restore ccache
       uses: actions/cache@v4
