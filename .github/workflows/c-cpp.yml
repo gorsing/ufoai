@@ -65,10 +65,12 @@ jobs:
   
     - name: Build
       run: make -j$(nproc)
-
+      
     - name: Smoke test (headless run)
       run: |
-        timeout 20s SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy ./ufo +snd_init 0 +vid_fullscreen 0 +quit
+        export SDL_VIDEODRIVER=offscreen
+        export SDL_AUDIODRIVER=dummy
+        timeout 20s ./ufo +snd_init 0 +vid_fullscreen 0 +quit
 
     - name: Run distcheck
       run: make distcheck
