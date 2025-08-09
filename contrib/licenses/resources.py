@@ -29,17 +29,17 @@ TIMESTAMP = re.compile("Date:\s+([0-9]+)\s")
 # TODO i dont think a cache here is need cause a resource is itself in a cache
 def get(cmd, cacheable=True):
     if cacheable and CACHING:
-        h = hashlib.md5(cmd).hexdigest()
+        h = hashlib.md5(cmd.encode('utf-8')).hexdigest()
         if h in os.listdir('licenses/cache'):
-            print ' getting from cache: ', cmd
-            print ' ', h
+            print(' getting from cache: ', cmd)
+            print(' ', h)
             return open('licenses/cache/' + h).read()
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-    data = p.stdout.read()
+    data = p.stdout.read().decode('utf-8')
 
     if cacheable and CACHING:
         open('licenses/cache/' + h, 'w').write(data)
-        print ' written to cache: ', cmd
+        print(' written to cache: ', cmd)
     return data
 
 def get_used_models(m):
@@ -192,7 +192,7 @@ class Resources(object):
     def computeResourceUsageInMaps(self):
         "Read maps and create relations with other resources"
 
-        print 'Parse texture usage in maps...'
+        print('Parse texture usage in maps...')
         files = set([])
         for i in os.walk('base/maps'):
             for mapname in i[2]:
@@ -214,7 +214,7 @@ class Resources(object):
                 mdlname = "base/" + model
                 mdlmeta = self.getResource(mdlname)
                 if mdlmeta == None:
-                    print "Warning: \"" + mdlname + "\" from map \"" + mapname + "\" does not exist"
+                    print("Warning: \"" + mdlname + "\" from map \"" + mapname + "\" does not exist")
                     continue
                 mdlmeta.usedByMaps.add(mapmeta)
                 mapmeta.useModels.add(mdlmeta)
@@ -224,7 +224,7 @@ class Resources(object):
                 texmeta = self.getResourceByShortImageName(texname)
                 # texture missing (or wrong python parsing)
                 if texmeta == None:
-                    print "Warning: \"" + texname + "\" from map \"" + mapname + "\" does not exist"
+                    print("Warning: \"" + texname + "\" from map \"" + mapname + "\" does not exist")
                     continue
                 texmeta.usedByMaps.add(mapmeta)
                 mapmeta.useTextures.add(texmeta)
