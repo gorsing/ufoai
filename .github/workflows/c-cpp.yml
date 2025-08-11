@@ -58,7 +58,7 @@ jobs:
 
     - name: Configure
       run: |
-        ./configure СC="gcc" CXX="g++"
+        ./configure CC="gcc" CXX="g++"
 
     - name: Build ufo2map first
       run: make ufo2map -j$(nproc)
