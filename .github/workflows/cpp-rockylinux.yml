@@ -19,37 +19,58 @@ jobs:
 
     - name: Install dependencies (Rocky/CentOS 8)
       run: |
+        set -euo pipefail
         dnf -y install dnf-plugins-core epel-release
-        dnf -y config-manager --set-enabled powertools
+        # RPM Fusion для xvidcore-devel
+        dnf -y install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm || true
+        # PowerTools/CRB для *-devel пакетов
+        dnf -y config-manager --set-enabled powertools || dnf -y config-manager --set-enabled crb
         dnf -y update
         dnf -y groupinstall "Development Tools"
         dnf -y install \
           ccache \
-          SDL2-devel \
-          SDL2_mixer-devel \
-          SDL2_ttf-devel \
-          gtk2-devel \
-          gtkglext-devel \
-          mxml-devel \
-          lua-devel \
-          libogg-devel \
-          libvorbis-devel \
-          libjpeg-turbo-devel \
-          libpng-devel \
-          libcurl-devel \
-          xvidcore-devel \
-          theora-devel \
-          gtest-devel \
-          openal-soft-devel \
           cmake \
           which \
           git \
-          pkgconfig
+          pkgconfig \
+          # SDL2 + аудио/шрифты
+          SDL2-devel \
+          SDL2_mixer-devel \
+          SDL2_ttf-devel \
+          # GTK (радиант/редактор)
+          gtk3-devel \
+          gtksourceview3-devel \
+          gtkglext-devel \
+          # форматы/кодеки/сеть
+          libjpeg-turbo-devel \
+          libpng-devel \
+          zlib-devel \
+          libwebp-devel \
+          libogg-devel \
+          libvorbis-devel \
+          libtheora-devel \
+          xvidcore-devel \
+          libcurl-devel \
+          openal-soft-devel \
+          # прочее
+          mxml-devel \
+          lua-devel \
+          libxml2-devel \
+          gtest-devel \
+          binutils-devel
         dnf clean all
 
     - name: Build GoogleTest (RHEL-like needs local build)
       run: |
-        cmake -S /usr/src/googletest -B /tmp/googletest
+        set -euo pipefail
+        SRC=""
+        for d in /usr/src/googletest /usr/src/googletest/googletest /usr/src/gtest; do
+          if [ -f "$d/CMakeLists.txt" ]; then SRC="$d"; break; fi
+        done
+        if [ -z "$SRC" ]; then
+          echo "GoogleTest sources not found under /usr/src"; exit 1
+        fi
+        cmake -S "$SRC" -B /tmp/googletest
         cmake --build /tmp/googletest -j"$(nproc)"
         mkdir -p /usr/lib64
         cp -f /tmp/googletest/lib/*.a /usr/lib64/ || true
@@ -57,7 +78,7 @@ jobs:
     - name: Set up ccache in PATH
       run: |
         echo "/usr/lib64/ccache" >> "$GITHUB_PATH" || true
-        echo "/usr/lib/ccache" >> "$GITHUB_PATH" || true
+        echo "/usr/lib/ccache"  >> "$GITHUB_PATH" || true
 
     - name: Restore ccache
       uses: actions/cache@v4
