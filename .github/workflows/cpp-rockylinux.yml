@@ -1,0 +1,98 @@
+name: C/C++ CI (CentOS 8)
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    container:
+      image: rockylinux:8
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Install dependencies (Rocky/CentOS 8)
+      run: |
+        dnf -y install dnf-plugins-core epel-release
+        dnf -y config-manager --set-enabled powertools
+        dnf -y update
+        dnf -y groupinstall "Development Tools"
+        dnf -y install \
+          ccache \
+          SDL2-devel \
+          SDL2_mixer-devel \
+          SDL2_ttf-devel \
+          gtk2-devel \
+          gtkglext-devel \
+          mxml-devel \
+          lua-devel \
+          libogg-devel \
+          libvorbis-devel \
+          libjpeg-turbo-devel \
+          libpng-devel \
+          libcurl-devel \
+          xvidcore-devel \
+          theora-devel \
+          gtest-devel \
+          openal-soft-devel \
+          cmake \
+          which \
+          git \
+          pkgconfig
+        dnf clean all
+
+    - name: Build GoogleTest (RHEL-like needs local build)
+      run: |
+        cmake -S /usr/src/googletest -B /tmp/googletest
+        cmake --build /tmp/googletest -j"$(nproc)"
+        mkdir -p /usr/lib64
+        cp -f /tmp/googletest/lib/*.a /usr/lib64/ || true
+
+    - name: Set up ccache in PATH
+      run: |
+        echo "/usr/lib64/ccache" >> "$GITHUB_PATH" || true
+        echo "/usr/lib/ccache" >> "$GITHUB_PATH" || true
+
+    - name: Restore ccache
+      uses: actions/cache@v4
+      with:
+        path: ~/.ccache
+        key: ccache-${{ runner.os }}-${{ github.sha }}
+        restore-keys: |
+          ccache-${{ runner.os }}-
+
+    - name: Configure
+      run: |
+        ./configure CC="gcc" CXX="g++"
+
+    - name: Build ufo2map first
+      run: make ufo2map -j"$(nproc)"
+
+    - name: Build
+      run: make -j"$(nproc)"
+
+    - name: Smoke test (headless run)
+      run: |
+        export SDL_VIDEODRIVER=dummy
+        export SDL_AUDIODRIVER=dummy
+        timeout 20s ./ufo +snd_init 0 +vid_fullscreen 0 +quit
+
+    - name: Run distcheck
+      run: make distcheck
+
+    - name: Save test logs if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs
+        path: |
+          tests/test-suite.log
+          */_build/sub/tests/test-suite.log
+          **/test-suite.log
+          config.log
