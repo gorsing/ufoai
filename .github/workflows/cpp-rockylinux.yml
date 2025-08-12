@@ -25,7 +25,7 @@ jobs:
         dnf -y config-manager --set-enabled powertools || dnf -y config-manager --set-enabled crb
         dnf -y update
         dnf -y groupinstall "Development Tools"
-        dnf -y install ccache cmake which git pkgconfig \
+        dnf -y install ccache cmake which git pkgconfig curl \
           SDL2-devel SDL2_mixer-devel SDL2_ttf-devel \
           gtk3-devel gtksourceview3-devel gtkglext-devel gtk2-devel \
           mxml-devel lua-devel libogg-devel libvorbis-devel libtheora-devel xvidcore-devel \
