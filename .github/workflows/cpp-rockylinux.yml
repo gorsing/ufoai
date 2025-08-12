@@ -37,36 +37,40 @@ jobs:
       shell: bash
       run: |
         set -euo pipefail
-
-        # 1) Попытка поставить системные пакеты (иногда их нет в EL8)
         dnf -y install gtest gtest-devel || true
 
         mkdir -p /usr/lib64 /usr/include
+        # уже есть собранные библиотеки?
+        if ls /usr/lib64/libgtest*.a >/dev/null 2>&1; then exit 0; fi
 
-        # Если библиотеки уже есть — выходим
-        if ls /usr/lib64/libgtest*.a >/dev/null 2>&1; then
-          exit 0
-        fi
-
-        # 2) Попытка собрать из /usr/src, если там есть исходники
-        for src in /usr/src/googletest /usr/src/googletest/googletest /usr/src/gtest; do
-          if [[ -f "$src/CMakeLists.txt" ]]; then
-            cmake -S "$src" -B /tmp/googletest
-            cmake --build /tmp/googletest -j"$(nproc)"
-            cp -f /tmp/googletest/lib/*.a /usr/lib64/ || true
-            [[ -d "$src/include/gtest" ]] && cp -r "$src/include/gtest" /usr/include/ || true
-            exit 0
+        build_from_src() {
+          local src="$1"
+          cmake -S "$src" -B /tmp/googletest -DBUILD_GTEST=ON -DBUILD_GMOCK=OFF
+          cmake --build /tmp/googletest -j"$(nproc)"
+          # забираем статические либы откуда бы они ни лежали
+          mapfile -t libs < <(find /tmp/googletest -type f \( -name 'libgtest*.a' -o -name 'libgmock*.a' \))
+          if [[ "${#libs[@]}" -gt 0 ]]; then cp -f "${libs[@]}" /usr/lib64/; fi
+          # хедеры
+          if [[ -d "$src/googletest/include/gtest" ]]; then
+            cp -r "$src/googletest/include/gtest" /usr/include/ || true
+          elif [[ -d "$src/include/gtest" ]]; then
+            cp -r "$src/include/gtest" /usr/include/ || true
           fi
+        }
+
+        # 1) /usr/src если есть
+        for d in /usr/src/googletest* /usr/src/gtest; do
+          [[ -f "$d/CMakeLists.txt" ]] || continue
+          build_from_src "$d"
+          exit 0
         done
 
-        # 3) Fallback: скачать и собрать из релиза
+        # 2) fallback: скачать и собрать из КОРНЯ архива
         GTEST_VER=1.15.2
         curl -L -o /tmp/gtest.tar.gz "https://github.com/google/googletest/archive/refs/tags/v${GTEST_VER}.tar.gz"
         tar -xf /tmp/gtest.tar.gz -C /tmp
-        cmake -S "/tmp/googletest-${GTEST_VER}/googletest" -B /tmp/googletest
-        cmake --build /tmp/googletest -j"$(nproc)"
-        cp -f /tmp/googletest/lib/*.a /usr/lib64/
-        cp -r "/tmp/googletest-${GTEST_VER}/googletest/include/gtest" /usr/include/
+        build_from_src "/tmp/googletest-${GTEST_VER}"
+
 
     - name: Set up ccache in PATH
       run: |
