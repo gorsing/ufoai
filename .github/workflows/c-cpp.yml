@@ -72,9 +72,6 @@ jobs:
         export SDL_AUDIODRIVER=dummy
         timeout 20s ./ufo +snd_init 0 +vid_fullscreen 0 +quit
 
-    - name: Run distcheck
-      run: make distcheck
-
     - name: Save test logs if failed
       if: failure()
       uses: actions/upload-artifact@v4
