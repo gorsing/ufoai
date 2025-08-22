@@ -79,10 +79,10 @@ class XORRectangle
 			if (!initialised()) {
 				GdkWindow* window = gtk_widget_get_window(m_widget);
 
-				// Створення cairo-контексту
+				// Create cairo-context
 				cairo = gdk_cairo_create(window);
 
-				// Заміна GdkColor на GdkRGBA
+				// Change GdkColor to GdkRGBA
 				GdkRGBA rgba = {1.0, 1.0, 1.0, 1.0}; // Білий колір (як було: 0xffff, 0xffff, 0xffff)
 				gdk_cairo_set_source_rgba(cairo, &rgba);
 
