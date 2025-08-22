@@ -83,7 +83,7 @@ class XORRectangle
 				cairo = gdk_cairo_create(window);
 
 				// Change GdkColor to GdkRGBA
-				GdkRGBA rgba = {1.0, 1.0, 1.0, 1.0}; // Білий колір (як було: 0xffff, 0xffff, 0xffff)
+				GdkRGBA rgba = {1.0, 1.0, 1.0, 1.0}; // White color (old value: 0xffff, 0xffff, 0xffff)
 				gdk_cairo_set_source_rgba(cairo, &rgba);
 
 				cairo_fill(cairo);
