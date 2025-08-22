@@ -341,14 +341,14 @@ check_headers() {
 	fi
 
 	check_header "picomodel.h" "picomodel"
-	check_header "gtk/gtk.h" "gtk+-2.0"
-	if [ "$HAVE_GTK_GTK_H" != "1" ]; then
-		for i in uforadiant; do
-			set_var "${i}_DISABLE" "yes" >/dev/null
-			set_var "${i}_REASON" "`get_var ${i}_REASON`\t- Gtk2 missing\n" >/dev/null
-		done
-	fi
-	check_header "gtksourceview/gtksourceview.h" "gtksourceview-2.0"
+       check_header "gtk/gtk.h" "gtk+-3.0"
+       if [ "$HAVE_GTK_GTK_H" != "1" ]; then
+               for i in uforadiant; do
+                       set_var "${i}_DISABLE" "yes" >/dev/null
+                       set_var "${i}_REASON" "`get_var ${i}_REASON`\t- Gtk3 missing\n" >/dev/null
+               done
+       fi
+       check_header "gtksourceview/gtksourceview.h" "gtksourceview-3.0"
 	check_header "libxml/parser.h" "libxml-2.0"
 	check_header "AL/al.h" "openal"
 	check_header "gtk/gtkglwidget.h" "gtkglext-1.0"

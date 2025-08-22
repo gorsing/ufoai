@@ -1,0 +1,113 @@
+name: C/C++ CI (CentOS 8)
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    container:
+      image: rockylinux:8
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Install dependencies (Rocky/CentOS 8)
+      run: |
+        set -euxo pipefail
+        dnf -y install dnf-plugins-core epel-release
+        dnf -y install https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm || true
+        dnf -y config-manager --set-enabled powertools || dnf -y config-manager --set-enabled crb
+        dnf -y update
+        dnf -y groupinstall "Development Tools"
+        dnf -y install ccache cmake which git pkgconfig curl \
+          SDL2-devel SDL2_mixer-devel SDL2_ttf-devel \
+          gtk3-devel gtksourceview3-devel gtkglext-devel gtk2-devel \
+          mxml-devel lua-devel libogg-devel libvorbis-devel libtheora-devel xvidcore-devel \
+          libjpeg-turbo-devel libpng-devel libwebp-devel libcurl-devel \
+          openal-soft-devel libxml2-devel gtest-devel binutils-devel zlib-devel
+        dnf clean all
+
+    - name: Prepare GoogleTest (EL8-robust)
+      shell: bash
+      run: |
+        set -euo pipefail
+        dnf -y install gtest gtest-devel || true
+
+        mkdir -p /usr/lib64 /usr/include
+        # уже есть собранные библиотеки?
+        if ls /usr/lib64/libgtest*.a >/dev/null 2>&1; then exit 0; fi
+
+        build_from_src() {
+          local src="$1"
+          cmake -S "$src" -B /tmp/googletest -DBUILD_GTEST=ON -DBUILD_GMOCK=OFF
+          cmake --build /tmp/googletest -j"$(nproc)"
+          # забираем статические либы откуда бы они ни лежали
+          mapfile -t libs < <(find /tmp/googletest -type f \( -name 'libgtest*.a' -o -name 'libgmock*.a' \))
+          if [[ "${#libs[@]}" -gt 0 ]]; then cp -f "${libs[@]}" /usr/lib64/; fi
+          # хедеры
+          if [[ -d "$src/googletest/include/gtest" ]]; then
+            cp -r "$src/googletest/include/gtest" /usr/include/ || true
+          elif [[ -d "$src/include/gtest" ]]; then
+            cp -r "$src/include/gtest" /usr/include/ || true
+          fi
+        }
+
+        # 1) /usr/src если есть
+        for d in /usr/src/googletest* /usr/src/gtest; do
+          [[ -f "$d/CMakeLists.txt" ]] || continue
+          build_from_src "$d"
+          exit 0
+        done
+
+        # 2) fallback: скачать и собрать из КОРНЯ архива
+        GTEST_VER=1.15.2
+        curl -L -o /tmp/gtest.tar.gz "https://github.com/google/googletest/archive/refs/tags/v${GTEST_VER}.tar.gz"
+        tar -xf /tmp/gtest.tar.gz -C /tmp
+        build_from_src "/tmp/googletest-${GTEST_VER}"
+
+
+    - name: Set up ccache in PATH
+      run: |
+        echo "/usr/lib64/ccache" >> "$GITHUB_PATH" || true
+        echo "/usr/lib/ccache"  >> "$GITHUB_PATH" || true
+
+    - name: Restore ccache
+      uses: actions/cache@v4
+      with:
+        path: ~/.ccache
+        key: ccache-${{ runner.os }}-${{ github.sha }}
+        restore-keys: |
+          ccache-${{ runner.os }}-
+
+    - name: Configure
+      run: |
+        ./configure CC="gcc" CXX="g++"
+
+    - name: Build ufo2map first
+      run: make ufo2map -j"$(nproc)"
+
+    - name: Build
+      run: make -j"$(nproc)"
+
+    - name: Smoke test (headless run)
+      run: |
+        export SDL_VIDEODRIVER=dummy
+        export SDL_AUDIODRIVER=dummy
+        timeout 20s ./ufo +snd_init 0 +vid_fullscreen 0 +quit
+
+    - name: Save test logs if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs
+        path: |
+          tests/test-suite.log
+          */_build/sub/tests/test-suite.log
+          **/test-suite.log
+          config.log

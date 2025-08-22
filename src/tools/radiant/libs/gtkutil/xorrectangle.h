@@ -77,14 +77,20 @@ class XORRectangle
 		void lazy_init ()
 		{
 			if (!initialised()) {
-				cairo = gdk_cairo_create(gtk_widget_get_window(m_widget));
+				GdkWindow* window = gtk_widget_get_window(m_widget);
 
-				GdkColor color = { 0, 0xffff, 0xffff, 0xffff, };
-				gdk_cairo_set_source_color(cairo, &color);
+				// Create cairo-context
+				cairo = gdk_cairo_create(window);
+
+				// Change GdkColor to GdkRGBA
+				GdkRGBA rgba = {1.0, 1.0, 1.0, 1.0}; // White color (old value: 0xffff, 0xffff, 0xffff)
+				gdk_cairo_set_source_rgba(cairo, &rgba);
+
 				cairo_fill(cairo);
 				cairo_set_operator(cairo, CAIRO_OPERATOR_XOR);
 			}
 		}
+
 		void draw () const
 		{
 			const int x = float_to_integer(m_rectangle.x);
