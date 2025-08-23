@@ -21,6 +21,7 @@
 
 #if !defined(INCLUDED_GTKUTIL_CURSOR_H)
 #define INCLUDED_GTKUTIL_CURSOR_H
+#define GDK_DISABLE_DEPRECATION_WARNINGS
 
 #include <glib.h>
 #include <gdk/gdk.h>

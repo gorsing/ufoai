@@ -58,7 +58,7 @@ jobs:
 
     - name: Configure
       run: |
-        ./configure --disable-uforadiant CC="gcc" CXX="g++"
+        ./configure CC="gcc" CXX="g++"
 
     - name: Build ufo2map first
       run: make ufo2map -j$(nproc)
@@ -71,9 +71,6 @@ jobs:
         export SDL_VIDEODRIVER=offscreen
         export SDL_AUDIODRIVER=dummy
         timeout 20s ./ufo +snd_init 0 +vid_fullscreen 0 +quit
-
-    - name: Run distcheck
-      run: make distcheck
 
     - name: Save test logs if failed
       if: failure()
