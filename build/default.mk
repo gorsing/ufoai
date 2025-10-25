@@ -59,12 +59,12 @@ GLIB_CFLAGS              ?= $(call PKG_CFLAGS,glib-2.0)
 GLIB_LIBS                ?= $(call PKG_LIBS,glib-2.0)
 GDK_PIXBUF_CFLAGS        ?= $(call PKG_CFLAGS,gdk-pixbuf-2.0)
 GDK_PIXBUF_LIBS          ?= $(call PKG_LIBS,gdk-pixbuf-2.0)
-GTK_CFLAGS               ?= $(call PKG_CFLAGS,gtk+-2.0)
-GTK_LIBS                 ?= $(call PKG_LIBS,gtk+-2.0)
+GTK_CFLAGS               ?= $(call PKG_CFLAGS,gtk+-3.0)
+GTK_LIBS                 ?= $(call PKG_LIBS,gtk+-3.0)
 
-ifdef HAVE_GTKSOURCEVIEW_2_0_GTKSOURCEVIEW_H
-GTK_SOURCEVIEW_CFLAGS    ?= $(call PKG_CFLAGS,gtksourceview-2.0)
-GTK_SOURCEVIEW_LIBS      ?= $(call PKG_LIBS,gtksourceview-2.0)
+ifdef HAVE_GTKSOURCEVIEW_3_0_GTKSOURCEVIEW_H
+GTK_SOURCEVIEW_CFLAGS    ?= $(call PKG_CFLAGS,gtksourceview-3.0)
+GTK_SOURCEVIEW_LIBS      ?= $(call PKG_LIBS,gtksourceview-3.0)
 GTK_SOURCEVIEW_SRCS      =
 else
 GTK_SOURCEVIEW_CFLAGS    ?= -Isrc/libs -Isrc/libs/gtksourceview -DDATADIR="\"dummy\""

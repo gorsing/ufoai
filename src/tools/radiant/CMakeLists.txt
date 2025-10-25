@@ -20,9 +20,9 @@ cmake_minimum_required(VERSION 3.13)
 project(uforadiant DESCRIPTION "UFORadiant map editor for UFO:AI.")
 
 find_package(Intl)
-find_package(GTK2)
+find_package(GTK3)
 find_package(GTKGL)
-find_package(GTKSourceView2)
+find_package(GTKSourceView3)
 find_package(LibXml2)
 find_package(OGG)
 find_package(OpenAL)
@@ -352,7 +352,12 @@ foreach(OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES})
 	set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_BINARY_DIR}/radiant)
 endforeach(OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES)
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE -DCOMPILE_MAP)
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+        -DCOMPILE_MAP
+        -DGTK_DISABLE_SINGLE_INCLUDES
+        -DGDK_DISABLE_DEPRECATED
+        -DGTK_DISABLE_DEPRECATED
+        -DGSEAL_ENABLE)
 target_compile_definitions(${PROJECT_NAME} PRIVATE -DPATH_UFORADIANTICON_FILE="${CMAKE_SOURCE_DIR}/build/projects/radiant.ico")
 
 target_include_directories(${PROJECT_NAME}
@@ -360,8 +365,8 @@ target_include_directories(${PROJECT_NAME}
 	PRIVATE libs
 	PRIVATE ../../libs/picomodel
 	PRIVATE ${SDL_INCLUDE_DIR}
-	PRIVATE ${GTK2_INCLUDE_DIRS}
-	PRIVATE ${GTKSourceView2_INCLUDE_DIR}
+        PRIVATE ${GTK3_INCLUDE_DIRS}
+        PRIVATE ${GTKSourceView3_INCLUDE_DIR}
 	PRIVATE ${GTKGL_INCLUDE_DIRS}
 	PRIVATE ${LIBXML2_INCLUDE_DIR}
 	PRIVATE ${OPENAL_INCLUDE_DIR}
@@ -372,8 +377,8 @@ target_include_directories(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-	${GTK2_LIBRARIES}
-	${GTKSourceView2_LIBRARY}
+        ${GTK3_LIBRARIES}
+        ${GTKSourceView3_LIBRARY}
 	${GTKGL_LIBRARIES}
 	${LIBXML2_LIBRARY}
 	${VORBIS_LIBRARY_FILE}
