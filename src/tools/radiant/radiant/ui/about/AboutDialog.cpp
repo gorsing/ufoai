@@ -2,7 +2,6 @@
 
 #include "radiant_i18n.h"
 #include <gtk/gtk.h>
-#include <gtk/gtkgl.h>
 #include "igl.h"
 #include "iregistry.h"
 #include "iradiant.h"
