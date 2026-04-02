@@ -66,10 +66,6 @@ GTK_SOURCEVIEW_CFLAGS    ?= $(call PKG_CFLAGS,gtksourceview-3.0)
 GTK_SOURCEVIEW_LIBS      ?= $(call PKG_LIBS,gtksourceview-3.0)
 GTK_SOURCEVIEW_SRCS      =
 
-
-GTK_GLEXT_CFLAGS         ?= $(call PKG_CFLAGS,gtkglext-1.0)
-GTK_GLEXT_LIBS           ?= $(call PKG_LIBS,gtkglext-1.0)
-
 XML2_CFLAGS              ?= $(call PKG_CFLAGS,libxml-2.0)
 XML2_LIBS                ?= $(call PKG_LIBS,libxml-2.0)
 
