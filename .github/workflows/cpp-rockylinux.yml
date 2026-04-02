@@ -93,7 +93,7 @@ jobs:
       run: make ufo2map -j1
 
     - name: Build
-      run: make -j1
+      run: make ufo uforadiant ufoded -j1
 
     - name: Smoke test (headless run)
       run: |
