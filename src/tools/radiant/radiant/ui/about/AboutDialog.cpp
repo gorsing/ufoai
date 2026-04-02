@@ -90,15 +90,6 @@ void AboutDialog::populateWindow() {
 	);
 	gtk_box_pack_start(GTK_BOX(dialogVBox), gtkutil::LeftAlignment(glibVersion, 18), FALSE, FALSE, 0);
 
-	// GTKGLExt Version
-	gtk_box_pack_start(GTK_BOX(dialogVBox), gtkutil::LeftAlignedLabel(
-		_("<b>GTKGLExt Properties</b>")), FALSE, FALSE, 0);
-
-	GtkWidget* gtkGlExtVersion = gtkutil::LeftAlignedLabel(
-		string::format(_("Version: %d.%d.%d"), gtkglext_major_version, gtkglext_minor_version, gtkglext_micro_version)
-	);
-	gtk_box_pack_start(GTK_BOX(dialogVBox), gtkutil::LeftAlignment(gtkGlExtVersion, 18), FALSE, FALSE, 0);
-
 	// OpenGL
 	gtk_box_pack_start(GTK_BOX(dialogVBox), gtkutil::LeftAlignedLabel(
 		_("<b>OpenGL Properties</b>")), FALSE, FALSE, 0);
