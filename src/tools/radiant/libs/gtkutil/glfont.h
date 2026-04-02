@@ -30,7 +30,7 @@ class GLFont
 {
         GLuint m_displayList;
         int m_pixelHeight;
-        GLuint m_texture; // <-- ДОБАВИЛИ ХРАНЕНИЕ ТЕКСТУРЫ
+        GLuint m_texture;
     public:
         GLFont (GLuint displayList, int pixelHeight, GLuint texture = 0) :
             m_displayList(displayList), m_pixelHeight(pixelHeight), m_texture(texture)
