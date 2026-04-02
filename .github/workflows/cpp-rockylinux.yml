@@ -46,7 +46,7 @@ jobs:
         build_from_src() {
           local src="$1"
           cmake -S "$src" -B /tmp/googletest -DBUILD_GTEST=ON -DBUILD_GMOCK=OFF
-          cmake --build /tmp/googletest -j"$(nproc)"
+          cmake --build /tmp/googletest -j1
           # забираем статические либы откуда бы они ни лежали
           mapfile -t libs < <(find /tmp/googletest -type f \( -name 'libgtest*.a' -o -name 'libgmock*.a' \))
           if [[ "${#libs[@]}" -gt 0 ]]; then cp -f "${libs[@]}" /usr/lib64/; fi
@@ -90,10 +90,10 @@ jobs:
         ./configure CC="gcc" CXX="g++"
 
     - name: Build ufo2map first
-      run: make ufo2map -j"$(nproc)"
+      run: make ufo2map -j1
 
     - name: Build
-      run: make -j"$(nproc)"
+      run: make -j1
 
     - name: Smoke test (headless run)
       run: |
