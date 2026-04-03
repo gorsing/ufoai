@@ -25,54 +25,28 @@
 extern void (*GLWidget_sharedContextCreated) ();
 extern void (*GLWidget_sharedContextDestroyed) ();
 
-// Forward declaration
-typedef struct _GdkGLConfig GdkGLConfig;
 typedef struct _GtkWidget GtkWidget;
-typedef int gint;
-typedef gint gboolean;
+typedef struct _GdkGLContext GdkGLContext;
+typedef void* gpointer;
 
 namespace gtkutil {
 
 class GLWidget {
-
-	// The actual widget, a GTK drawing area
-	GtkWidget* _widget;
-
-	// TRUE, if this GL widget has depth-buffering enabled
-	bool _zBuffer;
-
-	// The (singleton) widget holding the context
-	//static GtkWidget* _shared;
-
-	// Holds the number of realised GL widgets
-	//static int _realisedWidgets;
+    GtkWidget* _widget;
+    bool _zBuffer;
 
 public:
-	// Constructor, pass TRUE to enable depth-buffering
-	GLWidget(bool zBuffer);
-
-	// Operator cast to GtkWidget*, for packing into parent containers
-	operator GtkWidget*() const;
-
-	// Switches the GL context to the given widget
-	static bool makeCurrent(GtkWidget* widget);
-	static void swapBuffers(GtkWidget* widget);
+    GLWidget(bool zBuffer);
+    operator GtkWidget*() const;
+    static bool makeCurrent(GtkWidget* widget);
+    static void swapBuffers(GtkWidget* widget);
 
 private:
-	// As soon as the widget is packed into a parent, this callback is invoked
-	// and enables the GL drawing for this widget
-	static gboolean onHierarchyChanged(GtkWidget* widget,
-			GtkWidget* previous_toplevel, GLWidget* self);
-
-	// Called when the GTK drawing area is realised/unrealised
-	static gint onRealise(GtkWidget* widget, GLWidget* self);
-	static gint onUnRealise(GtkWidget* widget, GLWidget* self);
-
-	// Acquires a GDK GL config structure with or without depth
-	static GdkGLConfig* createGLConfigWithDepth();
-	static GdkGLConfig* createGLConfig();
+    static GdkGLContext* onCreateContext(GtkWidget* widget, gpointer user_data);
+    static void onRealize(GtkWidget* widget, GLWidget* self);
+    static void onUnrealize(GtkWidget* widget, GLWidget* self);
 };
 
-} // gtkutil
+} // namespace gtkutil
 
 #endif

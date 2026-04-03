@@ -28,21 +28,26 @@ typedef unsigned int GLuint;
 
 class GLFont
 {
-		GLuint m_displayList;
-		int m_pixelHeight;
-	public:
-		GLFont (GLuint displayList, int pixelHeight) :
-			m_displayList(displayList), m_pixelHeight(pixelHeight)
-		{
-		}
-		GLuint getDisplayList () const
-		{
-			return m_displayList;
-		}
-		int getPixelHeight () const
-		{
-			return m_pixelHeight;
-		}
+        GLuint m_displayList;
+        int m_pixelHeight;
+        GLuint m_texture;
+    public:
+        GLFont (GLuint displayList, int pixelHeight, GLuint texture = 0) :
+            m_displayList(displayList), m_pixelHeight(pixelHeight), m_texture(texture)
+        {
+        }
+        GLuint getDisplayList () const
+        {
+            return m_displayList;
+        }
+        int getPixelHeight () const
+        {
+            return m_pixelHeight;
+        }
+        GLuint getTexture () const
+        {
+            return m_texture;
+        }
 };
 
 GLFont glfont_create (const std::string& font_string);

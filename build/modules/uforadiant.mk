@@ -22,11 +22,9 @@ $(TARGET)_CFLAGS   += \
 	 $(XML2_CFLAGS) \
 	 $(GDK_PIXBUF_CFLAGS) \
 	 $(PICOMODEL_CFLAGS) \
-	 $(SDL_CFLAGS) \
-	 -DGTK_DISABLE_SINGLE_INCLUDES \
-	 -DGDK_DISABLE_DEPRECATED
-# UFORadiant is ready for these flags but gtksourceview2 isn't
-# @todo Re-enable these once switched to gtk3: -DGTK_DISABLE_DEPRECATED -DGSEAL_ENABLE
+        $(SDL_CFLAGS) \
+        -DGTK_DISABLE_SINGLE_INCLUDES \
+        -DGSEAL_ENABLE
 $(TARGET)_LDFLAGS  += -lgthread-2.0 -lvorbisfile -lvorbis -logg $(GTK_LIBS) $(GLIB_LIBS) $(GTK_SOURCEVIEW_LIBS) $(GDK_PIXBUF_LIBS) $(GTK_GLEXT_LIBS) $(OPENAL_LIBS) $(OPENGL_LIBS) $(XML2_LIBS) $(PICOMODEL_LIBS) $(SO_LIBS) -lm -lz -lX11
 
 $(TARGET)_SRCS      = \
