@@ -121,7 +121,7 @@ XYWnd::XYWnd () :
 	g_object_set(m_gl_widget, "can-focus", TRUE, NULL);
 
 	m_sizeHandler = g_signal_connect(G_OBJECT(m_gl_widget), "size_allocate", G_CALLBACK(callbackSizeAllocate), this);
-	m_exposeHandler = g_signal_connect(G_OBJECT(m_gl_widget), "expose_event", G_CALLBACK(callbackExpose), this);
+	m_exposeHandler = g_signal_connect(G_OBJECT(m_gl_widget), "render", G_CALLBACK(callbackRender), this);
 
 	g_signal_connect(G_OBJECT(m_gl_widget), "button_press_event", G_CALLBACK(callbackButtonPress), this);
 	g_signal_connect(G_OBJECT(m_gl_widget), "button_release_event", G_CALLBACK(callbackButtonRelease), this);
@@ -574,14 +574,14 @@ gboolean XYWnd::callbackSizeAllocate (GtkWidget* widget, GtkAllocation* allocati
 	return FALSE;
 }
 
-gboolean XYWnd::callbackExpose (GtkWidget* widget, GdkEventExpose* event, XYWnd* xywnd)
+gboolean XYWnd::callbackRender (GtkWidget* widget, GdkGLContext* context, XYWnd* xywnd)
 {
-	gtkutil::GLWidgetSentry sentry(xywnd->getWidget());
-	if (GlobalMap().isValid() && ScreenUpdates_Enabled()) {
-		xywnd->draw();
-		xywnd->m_XORRectangle.set(rectangle_t());
-	}
-	return FALSE;
+    gtkutil::GLWidgetSentry sentry(xywnd->getWidget());
+    if (GlobalMap().isValid() && ScreenUpdates_Enabled()) {
+        xywnd->draw();
+        xywnd->m_XORRectangle.set(rectangle_t());
+    }
+    return TRUE;
 }
 
 void XYWnd::CameraMoved ()

@@ -37,21 +37,21 @@ GdkGLContext* GLWidget::onCreateContext(GtkWidget* widget, gpointer user_data) {
     GdkWindow* window = gtk_widget_get_window(widget);
     GError* error = NULL;
     GdkGLContext* context = gdk_window_create_gl_context(window, &error);
-    
+
     if (!context) {
         globalErrorStream() << "Failed to create GL context: " << error->message << "\n";
         g_error_free(error);
         return NULL;
     }
-    
-    gdk_gl_context_set_required_version(context, 2, 1);
+
+    gdk_gl_context_set_forward_compatible(context, FALSE);
     gdk_gl_context_set_use_es(context, FALSE);
     return context;
 }
 
 GLWidget::GLWidget(bool zBuffer) : _zBuffer(zBuffer) {
     _widget = gtk_gl_area_new();
-    
+
     gtk_gl_area_set_has_depth_buffer(GTK_GL_AREA(_widget), zBuffer);
     gtk_gl_area_set_has_alpha(GTK_GL_AREA(_widget), TRUE);
 
@@ -66,7 +66,7 @@ GLWidget::operator GtkWidget*() const {
 
 bool GLWidget::makeCurrent(GtkWidget* widget) {
     if (!GTK_IS_GL_AREA(widget)) return false;
-    
+
     gtk_gl_area_make_current(GTK_GL_AREA(widget));
     return gtk_gl_area_get_error(GTK_GL_AREA(widget)) == NULL;
 }

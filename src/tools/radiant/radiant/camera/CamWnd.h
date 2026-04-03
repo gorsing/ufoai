@@ -7,6 +7,7 @@
 #include "gtkutil/glwidget.h"
 
 #include "../map/DeferredDraw.h"
+typedef struct _GdkGLContext GdkGLContext;
 
 const int CAMWND_MINSIZE_X = 240;
 const int CAMWND_MINSIZE_Y = 200;
@@ -106,7 +107,7 @@ class CamWnd : public scene::Graph::Observer
 		static gboolean disable_freelook_button_press(GtkWidget* widget, GdkEventButton* event, CamWnd* camwnd);
 
 		static gboolean camera_size_allocate(GtkWidget* widget, GtkAllocation* allocation, CamWnd* camwnd);
-		static gboolean camera_expose(GtkWidget* widget, GdkEventExpose* event, gpointer data);
+		static gboolean camera_render(GtkWidget* widget, GdkGLContext* context, gpointer data);
 
 		void onSceneGraphChange ();
 };

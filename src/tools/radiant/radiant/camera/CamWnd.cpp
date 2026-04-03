@@ -124,9 +124,9 @@ gboolean CamWnd::camera_size_allocate(GtkWidget* widget, GtkAllocation* allocati
 	return FALSE;
 }
 
-gboolean CamWnd::camera_expose(GtkWidget* widget, GdkEventExpose* event, gpointer data) {
-	reinterpret_cast<CamWnd*>(data)->draw();
-	return FALSE;
+gboolean CamWnd::camera_render(GtkWidget* widget, GdkGLContext* context, gpointer data) {
+    reinterpret_cast<CamWnd*>(data)->draw();
+    return TRUE;
 }
 
 static void Camera_motionDelta(int x, int y, unsigned int state, void* data) {
@@ -260,7 +260,7 @@ CamWnd::CamWnd() :
 	g_object_set(m_gl_widget, "can-focus", TRUE, NULL);
 
 	m_sizeHandler = g_signal_connect(G_OBJECT(m_gl_widget), "size_allocate", G_CALLBACK(camera_size_allocate), this);
-	m_exposeHandler = g_signal_connect(G_OBJECT(m_gl_widget), "expose_event", G_CALLBACK(camera_expose), this);
+	m_exposeHandler = g_signal_connect(G_OBJECT(m_gl_widget), "render", G_CALLBACK(camera_render), this);
 
 	GlobalMap().addValidCallback(DeferredDrawOnMapValidChangedCaller(m_deferredDraw));
 
